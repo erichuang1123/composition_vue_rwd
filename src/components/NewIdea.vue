@@ -118,4 +118,16 @@ export default {
         text-align: center;
         color: var(--color_gray);
     }
+    @media screen and ( min-width: 576px){
+        .find_title h2{
+            padding: 0 30px;
+        }
+        .find_wrap{
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .find_item{
+            width: 45%;
+        }
+    }
 </style>

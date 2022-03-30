@@ -100,11 +100,11 @@ export default {
     }
     .from_from{
         margin: 0 auto;
-        padding: 15px 18px 25px;
-        width: 85%;
+        padding: 40px 35px 40px;
+        width: 75%;
         background-color: var(--bac_black);
         color: #fff;
-        border-radius: 5px;
+        border-radius: 10px;
     }
     .from_from input{
         margin-top: 5px;
@@ -138,5 +138,15 @@ export default {
     }
     .from_from a:hover{
         background-color: transparent;
+    }
+    @media screen and ( min-width: 576px){
+        .from_wrap:first-of-type{
+            margin-bottom: 0;
+            display: flex;
+            justify-content: space-around;
+        }
+        .from_wrap:first-of-type .from_item{
+            width: 30%;
+        }
     }
 </style>

@@ -89,6 +89,28 @@ export default {
     .section_HowWedo{
         padding: 30px 15px 30px;
         background-color: var(--bac_black);
+        position: relative;
+    }
+    .section_HowWedo::before{
+        content: '';
+        width: 400px;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 50%;
+        /* background-image: linear-gradient(90deg,
+                                        #333 0 .5%,
+                                        #282828 0.6% 49.8%,
+                                        #333 49.6% 50.1%,
+                                        #282828 50.2% 99.4%,
+                                        #333 99.5% 100%
+                                        ); */
+        transform: translateX(-50%);
+        box-shadow: 200px 0 0 0 #333333,
+                    -200px 0 0 0 #333333;
+    }
+    .container{
+        position: relative;
     }
     .how_title{
         display: flex;
@@ -145,5 +167,19 @@ export default {
     }
     .how_wrap li.active a{
         color: #fff;
+    }
+    @media screen and ( min-width: 576px){
+        .section_HowWedo{
+            padding: 40px 25px 40px;
+        }
+        .how_wrap ul{
+            margin: 0 0 30px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        .how_wrap ul li{
+            width: 47%;
+        }
     }
 </style>

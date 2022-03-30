@@ -30,26 +30,28 @@ export default {
 <template>
   <div class="section section_giveBack">
       <div class="container">
-          <div class="commact">
-              <div class="commat1"></div>
-              <div class="commat2"></div>
-          </div>
-          <div class="giveback">I have worked with many companies offering design & architecture services, and out of all you were one who really stood out from the rest and did a great job.</div>
-          <div class="give_item">
-              <div class="pic">
-                  <img src="../assets/pic/user-1-80x80.jpg" alt="">
-              </div>
-              <div class="txt">
-                  <div class="name">KATE WILLIAMS</div>
-                  <div class="work">Entrepreneur</div>
-              </div>
-          </div>
-          <div class="our_page">
-              <a href="javascript:;" class="page"></a>
-              <a href="javascript:;" class="page"></a>
-              <a href="javascript:;" class="page"></a>
-          </div>
-          <div class="give_wrap">
+           <div class="commact">
+               <div class="commat1"></div>
+               <div class="commat2"></div>
+           </div>
+           <div class="giveback">I have worked with many companies offering design & architecture services, and out of all you were one who really stood out from the rest and did a great job.</div>
+           <div class="give_wrap wrap1">
+              <div class="give_item">
+                <div class="pic">
+                    <img src="../assets/pic/user-1-80x80.jpg" alt="">
+                </div>
+                <div class="txt">
+                    <div class="name">KATE WILLIAMS</div>
+                    <div class="work">Entrepreneur</div>
+                </div>
+            </div>
+            <div class="our_page">
+                <a href="javascript:;" class="page"></a>
+                <a href="javascript:;" class="page"></a>
+                <a href="javascript:;" class="page"></a>
+            </div>
+        </div>
+          <div class="give_wrap wrap2">
               <p>Trusted by</p>
               <ul>
                   <li>
@@ -145,6 +147,7 @@ export default {
     }
     .give_item .name{
         margin-bottom: 5px;
+        color: #fff;
     }
     .give_item .work{
         color: var(--bac_brown);
@@ -153,28 +156,57 @@ export default {
         margin-bottom: 25px;
         text-align: center;
     }
-    .give_wrap p{
+    .wrap2 p{
         margin-bottom: 30px;
         text-align: center;
     }
-    .give_wrap{
+    .wrap2{
         font-size: 18px;
         color: var(--color_gray);
     }
-    .give_wrap ul{
+    .wrap2 ul{
         display: flex;
         flex-wrap: wrap;
         align-items: center;
     }
-    .give_wrap li{
+    .wrap2 li{
         margin: 0 auto 20px;
         width: 120px;
     }
-    .give_wrap li a img{
+    .wrap2 li a img{
         filter: contrast(0%);
         transition: filter .3s;
     }
-    .give_wrap li:hover img{
+    .wrap2 li:hover img{
         filter: contrast(100%);
+    }
+    @media screen and ( min-width: 576px){
+        .section_giveBack{
+            padding: 40px 30px;
+        }
+        .our_page{
+            text-align: left;
+        }
+        .giveback{
+            text-align: left;
+            font-size: 23.5px;
+        }
+        .wrap1{
+            margin-bottom: 20px;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .wrap2 li{
+            margin: 0 auto 20px;
+            width: 150px;
+        }
+        .give_item{
+            margin: 0;
+        }
+        .our_page{
+            margin: 0;
+        }
     }
 </style>

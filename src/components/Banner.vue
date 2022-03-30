@@ -121,7 +121,8 @@ export default {
         color: #fff5;
     }
     .pic img{
-        height: 250px;
+        width: 100%;
+        height: 100%;
     }
     .banner_wrap ul{
         padding: 20px 0;
@@ -162,4 +163,39 @@ export default {
 		bottom: -1px;
 	} */
     /* } */
+    @media screen and ( min-width: 576px){
+        .section_banner{
+            padding: 0;
+        }
+        .section_banner .container{
+            display: flex;
+        }
+        .banner_wrap:first-of-type{
+            padding: 50px 0 0;
+        }
+        .contact{
+            width: 110px;
+            text-align: center;
+        }
+        .control_btn{
+            padding: 30px 0;
+        }
+        .banner_wrap h2,
+        .banner_wrap p{
+            padding: 0 15px;
+        }
+        .pic{
+            height: 300px;
+        }
+        .banner_wrap ul{
+            flex-wrap: wrap;
+        }
+        .banner_wrap ul li{
+            margin-bottom: 10px;
+        }
+        .banner_footer{
+            left: 69%;
+        }
+    }
+    
 </style>

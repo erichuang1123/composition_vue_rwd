@@ -116,4 +116,29 @@ export default {
         color: #000;
         background-color: transparent;
     }
+    @media screen and ( min-width: 576px){
+        .section_award{
+            padding: 50px 20px 70px;
+        }
+        .award_wrap{
+            justify-content: space-between;
+        }
+        .award_item{
+            margin: 0;
+            width: 30%;
+        }    
+        .award_item:nth-child(3){
+            margin: 0 0 30px;
+        }
+        .award_wrap .number{
+            font-size: 35px;
+        }
+        .award_tit p{
+            margin-bottom: 20px;
+            font-size: 20px;
+        }
+        .award_wrap .btn{
+            bottom: 35px;
+        }
+    }
 </style>

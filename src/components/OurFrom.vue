@@ -45,11 +45,11 @@ export default {
     }
      .ourFrom_from{
         margin: 0 auto;
-        padding: 15px 18px 25px;
-        width: 85%;
+        padding: 40px 35px 40px;
+        width: 75%;
         background-color: var(--bac_black);
         color: #fff;
-        border-radius: 5px;
+        border-radius: 10px;
     }
     .ourFrom_from input{
         margin-top: 5px;

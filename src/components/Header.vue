@@ -110,4 +110,7 @@ export default {
     ul.active {
         transform: translate(0%);
     }
+    /* @media screen and ( min-width: 576px){
+        
+    } */
 </style>

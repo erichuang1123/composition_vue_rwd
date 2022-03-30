@@ -187,4 +187,9 @@ export default {
         text-align: center;
         color: #6A6A6A;
     }
+    @media screen and ( min-width: 576px){
+        .section_project{
+            padding: 40px 20px;
+        }
+    }
 </style>
