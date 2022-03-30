@@ -1,0 +1,73 @@
+<script>
+export default {
+
+}
+</script>
+
+<template>
+    <footer class="sectopn main_footer">
+        <a href="javascript:;">
+            <h2>
+                <img src="../assets/pic/logo-inverse-2-54x63.png" alt="">
+                <span class="sr_only">SPECTRUM</span>
+            </h2>
+        </a>
+        <div class="phone">1-800-901-234</div>
+        <div class="email">info@demolink.org</div>
+        <div class="icon_wrap">
+            <a href="javascript:;" class="icon fb">
+                <i class="fa-brands fa-facebook"></i>
+            </a>
+            <a href="javascript:;" class="icon ig">
+                <i class="fa-brands fa-instagram"></i>
+            </a>
+            <a href="javascript:;" class="icon yt">
+                <i class="fa-brands fa-youtube"></i>
+            </a>
+        </div>
+        <div class="copyright">&copy; 2022 Spectrum. All Rights Reserved 黃致皓模仿練習</div>
+    </footer>
+</template> 
+
+<style scoped> 
+    .main_footer{
+        padding: 40px 0;
+        background-color: var(--bac_black);
+        color: #fff;text-align: center;
+    }
+    h2{
+        margin: 0 auto 20px;
+        width: 60px;
+    }
+    .phone{
+        margin-bottom: 10px;
+        font-size: 22px;
+    }
+    .email{
+        margin-bottom: 25px;
+        padding-bottom: 15px;
+        position: relative;
+        font-size: 22px;
+    }
+    .email::before{
+        content: '';
+        width: 150px;
+        height: 1px;
+        position: absolute;
+        bottom: -5px;
+        left: 50%;
+        background-color: #9E9E9E55;
+        transform: translateX(-50%);
+    }
+    .icon_wrap{
+        margin-bottom: 20px;
+    }
+    .icon_wrap a{
+        margin: 0 10px;
+        color: #fff;
+    }
+    .copyright{
+        color: #aaa;
+        font-size: 14px;
+    }
+</style>
