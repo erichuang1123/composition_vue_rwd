@@ -7,14 +7,14 @@ export default {
     <header class="section main_header">
         <a href="javascript:;">
             <h1>
-                <img src="../assets/pic/logo-inverse-169x42.png" alt="">
+                <img src="../assets/pic/logo-inverse-169x42.png" alt="logo">
                 <span class="sr_only">SPECTRUM</span>
             </h1>
         </a>
         <a href="javascript:;" class="btn">
-            <div class="line line1"></div>
-            <div class="line line2"></div>
-            <div class="line line3"></div>
+            <div class="line line1 open"></div>
+            <div class="line line2 open"></div>
+            <div class="line line3 open"></div>
             <!-- open開關要做 -->
         </a>
         <ul>
@@ -97,6 +97,8 @@ export default {
         box-shadow: 1px 1px 2px 2px #0005;
         transform: translate(-120%);
         transition: transfrom .3s;
+        background-color: var(--bac_black);
+        z-index: 25;
     }
     ul li a{
         padding: 15px 10px;
@@ -114,7 +116,60 @@ export default {
     ul.active {
         transform: translate(0%);
     }
-    /* @media screen and ( min-width: 576px){
-        
-    } */
+    @media screen and ( min-width: 1200px){
+        /* js滾輪超過高度還要處理 */
+        .main_header{
+            width: 30%;
+            box-shadow: 0 0 0 0 transparent;
+            position: absolute;
+            background-color: transparent;
+        }        
+        ul{
+            padding: 20px 20px;
+            width: 650px;
+            height: 80px;
+            top: -250%;
+            left: 85.6%;
+            display: flex;
+            align-items: center;
+            background-color: #fff;
+            transition: top .3s;
+        }
+        ul.active{
+            top: 0;
+            left: 85.6%;
+        }
+        ul li{
+            padding: 0 10px;
+        }
+        ul li a{
+            color: #000;
+            font-weight: 600;
+        }
+        .fa-mobile{
+            color: var(--color_gray);
+        }
+        .btn{
+            transform: rotatey(180deg);
+        }
+        .btn .line1{
+            width: 0;
+        }
+        .btn .line3{
+            width: 15px;
+        }
+        .btn:hover .line1{
+            width: 30px;
+        }
+        .btn:hover .line3{
+            width: 30px;
+        }
+        /* 點擊後不要改長度 */
+        .btn .line1.open{
+            width: 30px;
+        }
+        .btn .line3.open{
+            width: 30px;
+        }
+    }
 </style>

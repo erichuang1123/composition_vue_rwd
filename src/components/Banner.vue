@@ -52,7 +52,7 @@ export default {
             </div>
             <div class="banner_wrap wrap2">
                 <div class="pic">
-                    <img src="../assets/pic/slide-1-1339x729.jpg" alt="">
+                    <img src="../assets/pic/slide-1-1339x729.jpg" alt="房子">
                 </div>
                 <ul>
                     <li>2750 DUFFY ST</li>
@@ -317,6 +317,46 @@ export default {
         }
         .wrap2 ul li{
             margin-bottom: 0;
+        }
+    }
+    @media screen and ( min-width: 1200px){
+        .section_banner{
+            height: 100vh;
+        }
+        .banner_wrap{
+            height: 100%;
+        }
+        .wrap1 h2{
+            margin-bottom: 30px;
+            font-size: 45px;
+            text-align: center;
+        } 
+        h2::before{
+            top: 500px;
+        }
+        .wrap1 p{
+            margin-bottom: 80px;
+            margin-left: 23%;
+            font-size: 18px;
+        }
+        .contact{
+            margin: 0 0 90px 12%;
+        }
+        .wrap1 .control_btn{
+            padding: 30px 20px;
+            left: 44%;
+            bottom: -5%;
+        }
+        .wrap2 .pic{
+            height: 600px;
+        }
+        .wrap2 ul{
+            font-size: 18px;
+        }
+        .banner_footer{
+            left: 50%;
+            top: 88.5%;
+            font-size: 60px;
         }
     }
 </style>
