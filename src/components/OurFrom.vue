@@ -84,4 +84,25 @@ export default {
     .ourFrom_from a:hover{
         background-color: transparent;
     }
+    @media screen and ( min-width: 768px){
+        .section_ourFrom{
+            padding: 40px 50px;
+        }
+        .ourFrom_title{
+            margin: 0 auto;
+            width: 500px;
+        }        
+        .ourFrom_title h2{
+            text-align: left;
+        }        
+        .ourFrom_title p{
+            text-align: left;
+        }        
+        .ourFrom_from{
+            width: 430px;
+        }
+        .ourFrom_from input{
+            margin-bottom: 50px;
+        }
+    }
 </style>

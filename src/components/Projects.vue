@@ -192,4 +192,81 @@ export default {
             padding: 40px 20px;
         }
     }
+    @media screen and ( min-width: 768px){
+        .project_title{
+            display: flex;
+            align-items: center;
+        }
+        .project_title::before{
+            width: 100%;
+            height: 4px;
+        }
+        .project_title h2{
+            margin-right: 20px;
+            padding: 10px 20px 10px 0;
+            font-size: 40px;
+        }
+        .project_title p{
+            padding: 0 35px;
+            text-align: left;
+        }
+        .project_item{
+            flex-direction: row;
+            align-items: center;
+        }
+        .project_item .txt{
+            width: 47%;
+            height: 70%;
+            margin: 0;
+            order: 1;
+            z-index: 2;
+        }
+        .project_item .txt h3{
+            text-align: left;
+        }
+        .project_item .txt p{
+            font-size: 13px;
+            font-weight: 600;
+        }
+        .project_item .txt .content{
+            text-align: left;
+        }
+        .project_item .txt .date{
+            justify-content: flex-start;
+        }
+        .project_item .txt .date p:first-of-type{
+            margin-left: 0;
+        }
+        .project_item .pic{
+            margin-left: -15%;
+            margin-right: 30px;
+            width: 80%;
+            padding: 0;
+            order: 2;
+            z-index: 1;
+        }
+        .rwd_md{
+            display: none;
+        }
+        .rwd_control{
+            width: 100px;
+            display: block;
+            order: 3;
+        }
+        .rwd_control .prev,
+        .rwd_control .next{
+            margin: 20px auto;
+            width: 40px;
+            height: 40px;
+            line-height: 42px;
+            display: block;
+            color: #000;
+            border: 1px solid #aaa;
+            transition: color .3s;
+        }
+        .rwd_control .prev:hover,
+        .rwd_control .next:hover{
+            color: var(--bac_brown);
+        }
+    }
 </style>

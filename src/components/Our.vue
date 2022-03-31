@@ -189,4 +189,5 @@ export default {
             width: 240px;
         }
     }
+    @media screen and ( min-width: 768px){}
 </style>

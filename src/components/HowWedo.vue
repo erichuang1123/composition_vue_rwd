@@ -98,19 +98,35 @@ export default {
         position: absolute;
         top: 0;
         left: 50%;
+        transform: translateX(-50%);
+        border-left: 1px solid #333333;
+        border-right: 1px solid #333333;
+        z-index: 1;
         /* background-image: linear-gradient(90deg,
                                         #333 0 .5%,
                                         #282828 0.6% 49.8%,
                                         #333 49.6% 50.1%,
                                         #282828 50.2% 99.4%,
                                         #333 99.5% 100%
-                                        ); */
+                                        );
         transform: translateX(-50%);
         box-shadow: 200px 0 0 0 #333333,
-                    -200px 0 0 0 #333333;
+                    -200px 0 0 0 #333333; */
+    }
+    .section_HowWedo::after{
+        content: '';
+        width: 1px;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: #333333;
+        z-index: 1;
     }
     .container{
         position: relative;
+        z-index: 2;
     }
     .how_title{
         display: flex;
@@ -180,6 +196,11 @@ export default {
         }
         .how_wrap ul li{
             width: 47%;
+        }
+    }
+    @media screen and ( min-width: 768px){
+        .section_HowWedo{
+            padding: 85px 25px 85px;
         }
     }
 </style>

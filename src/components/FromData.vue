@@ -7,36 +7,42 @@ export default {
 <template>
   <section class="section section_FromData">
       <div class="container">
-          <div class="from_wrap">
+          <div class="from_wrap wrap1">
               <div class="from_item">
-                  <div class="pic">
-                      <i class="fa fa-home" aria-hidden="true"></i>
+                  <div class="title">
+                      <div class="pic">
+                          <i class="fa fa-home" aria-hidden="true"></i>
+                      </div>
+                      <h3>ARCHITECTURE</h3>
                   </div>
                   <div class="txt">
-                      <h3>ARCHITECTURE</h3>
                       <p>We provide high-quality architecture services.</p>
                   </div>
               </div>
               <div class="from_item">
-                  <div class="pic">
-                      <i class="fa fa-pencil" aria-hidden="true"></i>
+                  <div class="title">
+                      <div class="pic">
+                          <i class="fa fa-pencil" aria-hidden="true"></i>
+                      </div>
+                      <h3>INTERIOR DESIGN</h3>
                   </div>
                   <div class="txt">
-                      <h3>INTERIOR DESIGN</h3>
                       <p>Our team offers unique and stylish architecture solutions.</p>
                   </div>
               </div>
               <div class="from_item">
-                  <div class="pic">
-                      <i class="fa-solid fa-lightbulb"></i>
+                  <div class="title">
+                      <div class="pic">
+                          <i class="fa fa-solid fa-lightbulb"></i>
+                      </div>
+                      <h3>LIGHTING DESIGN</h3>
                   </div>
                   <div class="txt">
-                      <h3>LIGHTING DESIGN</h3>
                       <p>Let our team design unique lighting for your home.</p>
                   </div>
               </div>
           </div>
-          <div class="from_wrap">
+          <div class="from_wrap wrap2">
               <h2>
                   FIND OUT THE PRICE<br/>
                    OF YOUR HOME
@@ -57,7 +63,7 @@ export default {
     .section_FromData{
         padding: 40px 0;
     }
-    .from_wrap:first-child{
+    .wrap1{
         margin-bottom: 40px;
     }
     .from_item{
@@ -65,35 +71,38 @@ export default {
         padding: 15px 0;
         text-align: center;
     }
-    .from_item .pic{
+    .from_item .title .pic{
         margin-bottom: 20px;
-        font-size: 40px;
+        font-size: 35px;
         position: relative;
     }
-    .from_item .pic::before{
+    .from_item .title .pic::before{
         content: '';
+        position: absolute;
         width: 20px;
         height: 20px;
-        position: absolute;
         top: 13%;
-        transform: translateX(26px);
+        transform: translateX(20px);
         background-color: #C4956A99;
         border-radius: 50%;
     }
-    .from_item .txt h3{
-        margin-bottom: 5px;
+    .from_item .title h3{
+        margin-bottom: 15px;
         font-weight: 600;
+        font-size: 17px;
     }
     .from_item .txt p{
         color: var(--color_gray);
+        line-height: 1.3;
+        font-size: 16.5px;
     }
-    .from_wrap:last-child h2{
+    .wrap2 h2{
         margin-bottom: 20px;
         text-align: center;
         font-size: 25px;
         font-weight: 600;
     }
-    .from_wrap:last-child p{
+    .wrap2 p{
         margin-bottom: 30px;
         text-align: center;
         color: var(--bac_brown);
@@ -140,13 +149,75 @@ export default {
         background-color: transparent;
     }
     @media screen and ( min-width: 576px){
-        .from_wrap:first-of-type{
+        .wrap1{
+            padding: 0 30px;
             margin-bottom: 0;
             display: flex;
             justify-content: space-around;
+            box-sizing: border-box;
         }
-        .from_wrap:first-of-type .from_item{
+        .wrap1 .from_item{
             width: 30%;
+        }
+    }
+    @media screen and ( min-width: 768px){
+        .section_FromData{
+            background-image: url('../assets/pic/index-7-694x539.jpg');
+            background-repeat: no-repeat;
+            background-size: contain;
+            background-position: center;
+        }
+        .section_FromData{
+            padding: 70px 0;
+        }
+        .container{
+            display: flex;
+            opacity: 1;
+        }
+        .wrap1{
+            width: 40%;
+            flex-direction: column;
+            /* justify-content: center; */
+        }
+        .wrap1 .from_item{
+            width: 100%;
+        }
+        .wrap2{
+            width: 60%;
+        }
+        .from_item{
+            margin-bottom: 55px;
+            padding: 0;
+        }
+        .from_item .title{
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+        }
+        .from_item .title .pic{
+            margin: 0;
+        }
+        .from_item .title h3{
+            margin: 0 0 0 20px;
+        }
+        .from_item .txt p{
+            text-align: left;
+        }
+        .wrap2{
+            padding: 0 30px;
+        }
+        .wrap2 h2{
+            text-align: left;
+        }
+        .wrap2 p{
+            text-align: left;
+        }
+        .from_from{
+            margin: 0;
+            box-shadow: 7px 7px 10px 15px #aaa5;
+        }
+        .from_from input{
+            margin-bottom: 45px;
         }
     }
 </style>

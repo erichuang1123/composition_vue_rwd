@@ -7,7 +7,7 @@ export default {
 <template>
     <section class="section section_award">
         <div class="container">
-            <div class="award_wrap">
+            <div class="award_wrap wrap1">
                 <div class="award_title">
                     <h2>
                         AWRD-WINNING<br>
@@ -19,7 +19,7 @@ export default {
                     <img src="../assets/pic/index-5-533x362.jpg" alt="">
                 </div>
             </div>
-            <div class="award_wrap">
+            <div class="award_wrap wrap2">
                 <div class="award_item">
                     <div class="award_tit">
                         <div class="number">7</div>
@@ -52,7 +52,7 @@ export default {
         padding: 40px 20px 50px;
         position: relative;
     }
-    .award_wrap:first-child{
+    .wrap1{
         margin-bottom: 40px;
     }
     .award_title h2{
@@ -66,7 +66,7 @@ export default {
         text-align: center;
         color: var(--bac_brown);
     }
-    .award_wrap:nth-child(2){
+    .wrap2{
         display: flex;
         flex-wrap: wrap;
     }
@@ -139,6 +139,69 @@ export default {
         }
         .award_wrap .btn{
             bottom: 35px;
+        }
+    }
+    @media screen and ( min-width: 768px){
+        .section_award{
+            padding: 70px 50px 90px;
+            background-image: url('../assets/pic/index-8-853x574.jpg');
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-size: 110%;
+        }
+        .container{
+            display: flex;
+            justify-content: space-between;
+        }
+        .wrap1{
+            width: 45%;
+        }
+        .award_title h2{
+            margin-bottom: 25px;
+            text-align: left;
+            font-size: 30px;
+            line-height: 1.3;
+        }
+        .award_title p{
+            margin-bottom: 50px;
+            text-align: left;
+            font-weight: 600;
+        }
+        .wrap2{
+            width: 40%;
+            flex-direction: column;
+            /* align-items: flex-end; */
+            justify-content: flex-start;
+        }
+        .pic{
+            box-shadow: 7px 7px 30px 20px #aaa7;
+        }
+        .award_item{
+            margin-bottom: 25px;
+            width: 100%;
+        }
+        .award_tit{
+            margin-bottom: 20px;
+            display: flex;
+        }
+        .award_tit .number{
+            margin-right: 15px;
+            font-size: 40px;
+        }
+        .award_tit p::before{
+            left: 0%;
+            transform: translate(0);
+        }
+        .content{
+            font-size: 20px;
+            text-align: left;
+        }
+        .award_wrap .btn{
+            padding: 10px;
+            width: 120px;
+            position: initial;
+            transform: translate(0);
+            text-align: center;
         }
     }
 </style>

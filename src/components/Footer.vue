@@ -70,4 +70,27 @@ export default {
         color: #aaa;
         font-size: 14px;
     }
+    @media screen and ( min-width: 768px){
+        .main_footer{
+            padding: 70px 0;
+        }
+        h2{
+            margin-bottom: 30px;
+        }
+        .phone{
+            font-size: 30px;
+        }
+        .email{
+            padding-bottom: 40px;
+            margin-bottom: 40px;
+            font-size: 30px;
+        }
+        .icon_wrap{
+            margin-bottom: 40px;
+        }
+        .icon_wrap .icon{
+            margin: 0 20px;
+            font-size: 30px;
+        }
+    }
 </style>

@@ -109,7 +109,7 @@ export default {
         height: 15px;
         position: absolute;
         top: 0px;
-        left: 46%;
+        left: 47%;
         background-color: var(--bac_brown);
     }
     .commat1::after,
@@ -119,17 +119,17 @@ export default {
         height: 0;
         position: absolute;
         top: 15px;
-        left: 46%;
+        left: 47%;
         border-top: 5px solid var(--bac_brown);
         border-right: 5px solid transparent;
         border-bottom: 5px solid transparent;
         border-left: 5px solid var(--bac_brown);
     }
     .commat2::before{
-        left: 52%;
+        left: 51%;
     }
     .commat2::after{
-        left: 52%;
+        left: 51%;
     }
     .give_item{
         margin-bottom: 23px;
@@ -207,6 +207,46 @@ export default {
         }
         .our_page{
             margin: 0;
+        }
+    }
+    @media screen and ( min-width: 768px){
+        .section_giveBack{
+            padding: 60px 40px;
+        }
+        .commat1::before,
+        .commat2::before{
+            left: 0%;
+        }
+        .commat1::after,
+        .commat2::after{
+            left: 0%;
+        }
+        .commat2::before{
+            left: 3%;
+        }
+        .commat2::after{
+            left: 3%;
+        }
+        .giveback{
+            margin-left: 100px;
+        }
+        .wrap1{
+            margin-left: 100px;
+            width: auto;
+        }
+        .wrap2 p{
+            margin-left: 100px;
+            text-align: left;
+        }
+        .wrap2 ul{
+            margin-left: 100px;
+        }
+        .wrap2 li{
+            margin: 0 10px 20px 0;
+            width: 30%;
+        }
+        .wrap2 li img{
+            width: 60%;
         }
     }
 </style>

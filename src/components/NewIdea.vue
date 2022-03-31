@@ -8,7 +8,7 @@ export default {
     <section class="section section_findNew">
         <div class="container">
             <div class="find_title">
-                <h2>FIND NEW IDEAS AND INSPIRATION IN OUR BLOG</h2>
+                <h2><span>FIND NEW IDEAS AND</span> INSPIRATION IN OUR BLOG</h2>
                 <p>LATEST BLOG POSTS</p>
             </div>
             <div class="find_wrap">
@@ -54,15 +54,25 @@ export default {
     }
     .section_findNew::before{
         content: '';
+        width: 400px;
+        height: 100%;
         position: absolute;
         top: 0;
         left: 50%;
+        transform: translateX(-50%);
+        border-left: 1px solid #aaa5;
+        border-right: 1px solid #aaa5;
+        z-index: 1;
+    }
+    .section_findNew::after{
+        content: '';
         width: 1px;
         height: 100%;
-        background-color: #EFEFEF;
+        position: absolute;
+        top: 0;
+        left: 50%;
         transform: translateX(-50%);
-        box-shadow: 170px 0 0px 0px #EFEFEF,
-                    -170px 0 0px 0px #EFEFEF;
+        background-color: #aaa5;
         z-index: 1;
     }
     .section_findNew .container{
@@ -128,6 +138,28 @@ export default {
         }
         .find_item{
             width: 45%;
+        }
+    }
+    @media screen and ( min-width: 768px){
+        .section_findNew{
+            padding: 80px 30px;
+        }
+        .find_title h2 span{
+            display: block;
+        }
+        .find_item{
+            width: 30%;
+        }
+        .find_item a{
+            text-align: left;
+            font-size: 19px;
+            font-weight: 600;
+        }
+        .find_item .find_date{
+            text-align: left;
+        }
+        .find_item p{
+            text-align: left;
         }
     }
 </style>
