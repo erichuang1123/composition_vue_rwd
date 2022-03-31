@@ -51,6 +51,10 @@ export default {
         position: relative;
         background-color: var(--bac_black);
         box-shadow: 1px 3px 5px 5px #0005;
+        position: sticky;
+        top: 0;
+        left: 0;
+        z-index: 10;
     }
     .main_header h1{
         margin-right: 5vw;

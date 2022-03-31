@@ -36,11 +36,11 @@ export default {
 <template>
   <section class="section section_HowWedo">
       <div class="container">
-          <div class="how_wrap">
+          <div class="how_wrap wrap1">
               <div class="how_title">
                 <h2>
-                    <span>HOW WEDO</span> 
-                    IT
+                    <span>HOW WE</span> 
+                    DO IT
                 </h2>
                 <p>4 STEP TO A NEW HOME</p>
               </div>
@@ -50,7 +50,7 @@ export default {
                   <p>This stage is highly decisive as you can evaluate the work of your potential architect by browsing their portfolio. As a client, you may also assess whether the architect listens to your needs and confirms that he or she understands them.</p>
               </div>
           </div>
-          <div class="how_wrap">
+          <div class="how_wrap wrap2">
               <ul>
                   <li class="active">
                       <span>01</span>
@@ -151,6 +151,7 @@ export default {
         margin-bottom: 15px;
         color: var(--bac_brown);
         font-size: 23px;
+        font-weight: 600;
     }
     .how_wrap p{
         color: var(--color_gray);
@@ -201,6 +202,40 @@ export default {
     @media screen and ( min-width: 768px){
         .section_HowWedo{
             padding: 85px 25px 85px;
+        }
+    }
+    @media screen and ( min-width: 992px){
+        .section_HowWedo{
+            padding: 90px 25px;
+        }
+        .container{
+            display: flex;
+            justify-content: space-between;
+        }
+        .wrap1{
+            width: 40%;
+        }
+        .wrap2{
+            width: 55%;
+        }
+        .how_title h2{
+            font-size: 50px;   
+            line-height: 1.2;         
+        }
+        .how_title h2 span{
+            display: block;
+        }
+        .how_wrap h3{
+            font-size: 30px;
+        }
+        .how_wrap p{
+            font-size: 18px;
+        }
+        .wrap2 ul{
+            margin-bottom: 75px;
+        }
+        .wrap2 .pic{
+            width: 100%;
         }
     }
 </style>

@@ -190,4 +190,18 @@ export default {
         }
     }
     @media screen and ( min-width: 768px){}
+    @media screen and ( min-width: 992px){        .section_our{
+            padding: 90px 20px;
+        }
+        .out_title h2{
+            margin-bottom: 30px;
+        }
+        .out_title p{
+            margin-bottom: 60px;
+            font-weight: 600;
+        }
+        .our_wrap{
+            margin-bottom: 60px;
+        }
+    }
 </style>

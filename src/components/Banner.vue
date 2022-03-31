@@ -263,4 +263,60 @@ export default {
             z-index: 2;
         }
     }
+    @media screen and ( min-width: 992px){
+        .wrap1{
+            width: 30%;
+            padding: 100px 0px 100px;
+            position: relative;
+        }
+        .wrap1 h2{
+            margin-bottom: 30px;
+            font-size: 40px;
+        } 
+        h2::before{
+            content: '';
+            position: absolute;
+            top: 350px;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background-color: #313131;
+        }
+        .wrap1 p{
+            /* margin-bottom: 20px; */
+            font-size: 18px;
+            margin-left: 40px;
+        }
+        .contact{
+            padding: 15px 20px;
+        }
+        .wrap1 .control_btn{
+            padding: 15px 10px;
+            position: absolute;
+            left: 120px;
+            bottom: 60px;
+            background-color: var(--bac_brown);
+        }
+       
+        .wrap2{
+            width: 70%;
+        }
+        .wrap2 .pic{
+            height: 450px;
+        }
+        .banner_footer{
+            top: 87%;
+            left: 42%;
+            font-size: 38px;
+        }
+        .wrap2 ul{
+            padding: 0;
+            height: 103px;
+            justify-content: flex-end;
+            align-items: center;
+        }
+        .wrap2 ul li{
+            margin-bottom: 0;
+        }
+    }
 </style>

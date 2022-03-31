@@ -7,19 +7,24 @@ export default {
 <template>
     <section class="section section_ourFrom">
         <div class="container">
-            <div class="ourFrom_title">
-                <h2>
-                    GET IN TOUCH WITH<br>
-                    OUR TEAM
-                </h2>
-                <p>LET’S WORK TOGETHER!</p>
+            <div class="rwd_wrap">
+                <img src="../assets/pic/index-6-538x694.png" alt="">
             </div>
-            <div class="ourFrom_from">
-                <input type="text" placeholder="Name">
-                <input type="email" placeholder="Email">
-                <input type="phone" placeholder="Phone">
-                <a href="javascript:;">SUBMIT</a>
-            </div>            
+           <div class="our_wrap">
+                <div class="ourFrom_title">
+                    <h2>
+                        GET IN TOUCH WITH<br>
+                        OUR TEAM
+                    </h2>
+                    <p>LET’S WORK TOGETHER!</p>
+                </div>
+                <div class="ourFrom_from">
+                    <input type="text" placeholder="Name">
+                    <input type="email" placeholder="Email">
+                    <input type="phone" placeholder="Phone">
+                    <a href="javascript:;">SUBMIT</a>
+                </div>       
+            </div>     
         </div>
     </section>
 </template>
@@ -27,6 +32,9 @@ export default {
 <style scoped>
     .section_ourFrom{
         padding: 50px 0;
+    }
+    .rwd_wrap{
+        display: none;
     }
     .ourFrom_title{
         text-align: center;
@@ -103,6 +111,39 @@ export default {
         }
         .ourFrom_from input{
             margin-bottom: 50px;
+        }
+    }
+    @media screen and ( min-width: 992px){
+        .section_ourFrom{
+            padding-top: 0;
+            background-image: url('../assets/pic/index-9-1047x531.jpg');
+            background-repeat: no-repeat;
+            background-size: contain;
+            background-position: center center;
+        }
+        .container{
+            display: flex;
+            justify-content: space-between;
+        }
+        .rwd_wrap{
+            width: 48%;
+            display: block;
+        }
+        .our_wrap{
+            padding: 100px 0;
+            width: 50%;
+        }
+        .our_wrap h2{
+            margin-bottom: 30px;
+            font-size: 32px;
+        }
+        .our_wrap p{
+            margin-bottom: 35px;
+        }
+        .ourFrom_from{
+            margin: 0;
+            width: 380px;
+            box-shadow: 7px 7px 20px 20px #aaa8;
         }
     }
 </style>

@@ -204,4 +204,10 @@ export default {
             text-align: center;
         }
     }
+    @media screen and ( min-width: 992px){
+        .award_title h2{
+            font-size: 29px;
+        }
+    }
+    
 </style>

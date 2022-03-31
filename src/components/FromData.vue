@@ -168,11 +168,12 @@ export default {
             background-position: center;
         }
         .section_FromData{
-            padding: 70px 0;
+            padding: 70px 50px;
         }
         .container{
             display: flex;
             opacity: 1;
+            justify-content: space-between;
         }
         .wrap1{
             width: 40%;
@@ -182,15 +183,12 @@ export default {
         .wrap1 .from_item{
             width: 100%;
         }
-        .wrap2{
-            width: 60%;
-        }
         .from_item{
             margin-bottom: 55px;
             padding: 0;
         }
         .from_item .title{
-            margin-bottom: 20px;
+            margin-bottom: 25px;
             display: flex;
             align-items: center;
         }
@@ -204,7 +202,9 @@ export default {
             text-align: left;
         }
         .wrap2{
-            padding: 0 30px;
+            margin-left: auto;
+            padding: 0;
+            width: 50%;
         }
         .wrap2 h2{
             text-align: left;
@@ -218,6 +218,16 @@ export default {
         }
         .from_from input{
             margin-bottom: 45px;
+        }
+    }
+    @media screen and ( min-width: 992px){
+        .section_FromData{
+            padding: 120px 0px 100px;
+        }
+        .from_item .txt p{
+            width: 240px;
+            text-align: left;
+            font-size: 20px;
         }
     }
 </style>

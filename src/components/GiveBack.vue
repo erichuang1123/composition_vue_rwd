@@ -211,7 +211,7 @@ export default {
     }
     @media screen and ( min-width: 768px){
         .section_giveBack{
-            padding: 60px 40px;
+            padding: 50px 40px;
         }
         .commat1::before,
         .commat2::before{
@@ -247,6 +247,20 @@ export default {
         }
         .wrap2 li img{
             width: 60%;
+        }
+        @media screen and ( min-width: 992px){
+            .giveback{
+                font-size: 32px;
+            }
+            .wrap1{
+                margin-bottom: 80px;
+            }
+            .wrap1 .pic{
+                width: 80px;
+            }
+            .wrap1 .txt{
+                font-size: 20px;
+            }
         }
     }
 </style>

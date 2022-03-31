@@ -269,4 +269,13 @@ export default {
             color: var(--bac_brown);
         }
     }
+    @media screen and ( min-width: 992px){
+        .project_title{
+            margin-bottom: 80px;
+        }
+        .project_title h2{
+            margin-bottom: 30px;
+            font-size: 52px;
+        }
+    }
 </style>

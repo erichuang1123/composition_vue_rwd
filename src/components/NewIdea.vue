@@ -162,4 +162,16 @@ export default {
             text-align: left;
         }
     }
+    @media screen and ( min-width: 992px){
+        .find_title h2{
+            margin-bottom: 30px;
+        }
+        .find_title p{
+            margin-bottom: 40px;
+            font-weight: 600;
+        }
+        .find_item .pic{
+            margin: 0 0 20px 0;
+        }
+    }
 </style>
