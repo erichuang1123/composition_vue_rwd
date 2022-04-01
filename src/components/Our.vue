@@ -86,11 +86,12 @@ export default {
     .out_title h2{
         margin-bottom: 20px;
         font-size: 28px;
-        font-weight: 600;
+        font-weight: 900;
     }
     .out_title p{
         margin-bottom: 20px;
         color: var(--bac_brown);
+        font-weight: 900;
     }
     .our_wrap{
         margin-bottom: 28px;
@@ -104,8 +105,8 @@ export default {
         width: 300px;
         display: inline-block;
         color: #000;
-        font-weight: 600;
         background-color: #fff;
+        font-weight: 700;
         transition: color .3s;
     }
     .our_item .pic a:hover{
@@ -117,8 +118,9 @@ export default {
         width: 280px;
     }
     .our_item .txt p{
-        margin-bottom: 15px;
+        margin-bottom: 25px;
         color: var(--bac_brown);
+        font-weight: 600;
     }
     .icon_link{
         display: flex;
@@ -129,6 +131,7 @@ export default {
         position: absolute;
         font-size: 30px;
         color: #aaa5;
+        font-weight: 900;
     }
     .icon_link .name::before{
         content: '';
@@ -142,8 +145,10 @@ export default {
     .icon_link .icon{
         margin-left: 18px;
         font-size: 20px;
-        color: #999;
+        color: #626262;
         transition: color .3s;
+        position: relative;
+        z-index: 3;
     }
     .icon_link .fb{
         margin-left: 100px;
@@ -189,8 +194,8 @@ export default {
             width: 240px;
         }
     }
-    @media screen and ( min-width: 768px){}
-    @media screen and ( min-width: 992px){        .section_our{
+    @media screen and ( min-width: 992px){        
+        .section_our{
             padding: 90px 20px;
         }
         .out_title h2{
@@ -198,10 +203,38 @@ export default {
         }
         .out_title p{
             margin-bottom: 60px;
-            font-weight: 600;
         }
         .our_wrap{
             margin-bottom: 60px;
         }
     }
+    @media screen and ( min-width: 1200px){
+        .section_our{
+            padding: 80px 55px;   
+        }
+        .our_wrap{
+            justify-content: space-between;
+            overflow: hidden;
+        }
+        .our_item .pic a{
+            padding: 15px 5;
+            font-size: 18px;
+        }
+        .our_item .pic{
+            margin-bottom: 20px;
+        }
+        .our_item .txt{
+            padding: 0 0 30px;
+            margin-left: 20px;
+        }
+        .txt p{
+            font-size: 18px;
+        }
+        .txt .name{
+            font-size: 55px;
+        }
+        .icon_link .fb{
+            margin-left: 120px;
+        }
+    }        
 </style>

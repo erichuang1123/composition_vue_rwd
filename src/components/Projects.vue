@@ -94,7 +94,7 @@ export default {
         font-size: 25px;
     }
     .project_title h2 span{
-        font-weight: 600;
+        font-weight: 900;
     }
     .project_title p{
         margin-bottom: 20px;
@@ -161,7 +161,7 @@ export default {
         justify-content: center;
     }
     .project_item .txt .date p{
-        margin: 0 10px 10px;
+        margin: 0 10px 30px;
         color: #DDDDDD;
     }
     .project_item .txt .date p + p{
@@ -176,14 +176,15 @@ export default {
     /* .project_item .date div:first-of-type{}
     .project_item .date div:last-of-type{} */
     .project_item .txt h3{
-        margin-bottom: 15px;
+        margin-bottom: 25px;
         font-size: 25px;
         text-align: center;
         color: var(--bac_brown);
-        font-weight: 600;
+        font-weight: 900;
+        line-height: 1.5;
     }
     .project_item .txt .content{
-        line-height: 1.1;
+        line-height: 1.7;
         text-align: center;
         color: #6A6A6A;
     }
@@ -276,6 +277,18 @@ export default {
         .project_title h2{
             margin-bottom: 30px;
             font-size: 52px;
+        }
+    }
+    @media screen and ( min-width: 1200px){
+        .section_project{
+            padding: 100px 60px;
+        }
+        .project_title p{
+            font-size: 19px;
+        }
+        .project_item .txt{
+            padding: 70px 30px;
+            width: 30%;
         }
     }
 </style>

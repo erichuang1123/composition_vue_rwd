@@ -54,7 +54,7 @@ export default {
     }
     .section_findNew::before{
         content: '';
-        width: 400px;
+        width: 250px;
         height: 100%;
         position: absolute;
         top: 0;
@@ -83,19 +83,25 @@ export default {
         margin-bottom: 15px;
         text-align: center;
         font-size: 30px;
-        line-height: 1.2;
-        font-weight: 600;
+        line-height: 1.5;
+        font-weight: 900;
     }
     .find_title p{
         margin-bottom: 20px;
         text-align: center;
         color: var(--bac_brown);
+        font-weight: 900;
     }
     .find_item{
         margin: 0 auto;
         width: 270px;
         display: flex;
         flex-direction: column;
+    }
+    .find_item h3{
+        line-height: 1.4;
+        margin-bottom: 10px;
+        font-weight: 900;
     }
     .find_item a{
         margin-bottom: 12px;
@@ -111,11 +117,11 @@ export default {
         color: var(--bac_brown);
     }
     .find_item .find_date{
-        margin-bottom: 10px;
+        margin-bottom: 30px;
         text-align: center;
         color: var(--color_gray);
         font-size: 25px;
-        font-weight: 600;
+        font-weight: 900;
         order: 1;
     }
     .find_item .pic{
@@ -127,8 +133,12 @@ export default {
         order: 4;
         text-align: center;
         color: var(--color_gray);
+        line-height: 1.4;
     }
     @media screen and ( min-width: 576px){
+        .section_findNew::before{
+            width: 350px;
+        }
         .find_title h2{
             padding: 0 30px;
         }
@@ -141,6 +151,9 @@ export default {
         }
     }
     @media screen and ( min-width: 768px){
+        .section_findNew::before{
+            width: 450px;
+        }
         .section_findNew{
             padding: 80px 30px;
         }
@@ -168,10 +181,17 @@ export default {
         }
         .find_title p{
             margin-bottom: 40px;
-            font-weight: 600;
         }
         .find_item .pic{
             margin: 0 0 20px 0;
+        }
+    }
+    @media screen and ( min-width: 1200px){
+        .find_item{
+            width: 24%;
+        }
+        .find_item h3{
+            font-size: 1.2vw;
         }
     }
 </style>

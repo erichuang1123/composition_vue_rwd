@@ -227,7 +227,12 @@ export default {
         .from_item .txt p{
             width: 240px;
             text-align: left;
-            font-size: 20px;
+            font-size: 15px;
+        }
+    }
+    @media screen and ( min-width: 1200px){
+        .section_FromData{
+            background-size: 60%;
         }
     }
 </style>

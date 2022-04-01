@@ -12,8 +12,8 @@ export default {
                 <span class="sr_only">SPECTRUM</span>
             </h2>
         </a>
-        <div class="phone">1-800-901-234</div>
-        <div class="email">info@demolink.org</div>
+        <a href="javascript:;" class="phone">1-800-901-234</a>
+        <a href="javascript:;" class="email">info@demolink.org</a>
         <div class="icon_wrap">
             <a href="javascript:;" class="icon fb">
                 <i class="fa-brands fa-facebook"></i>
@@ -41,13 +41,19 @@ export default {
     }
     .phone{
         margin-bottom: 10px;
+        display: block;
         font-size: 22px;
+        color: #fff;
+        transition: color .3s;
     }
     .email{
         margin-bottom: 25px;
         padding-bottom: 15px;
-        position: relative;
+        display: block;
         font-size: 22px;
+        color: #fff;
+        transition: color .3s;
+        position: relative;
     }
     .email::before{
         content: '';
@@ -58,6 +64,10 @@ export default {
         left: 50%;
         background-color: #9E9E9E55;
         transform: translateX(-50%);
+    }
+    .phone:hover,
+    .email:hover{
+        color: var(--bac_brown);
     }
     .icon_wrap{
         margin-bottom: 20px;
