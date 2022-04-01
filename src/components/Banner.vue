@@ -78,7 +78,7 @@ export default {
         margin-bottom: 20px;
         text-align: center;
         font-size: 30px;
-        font-weight: 600;
+        font-weight: 900;
         line-height: 1.1;
     }
     p{
@@ -87,6 +87,7 @@ export default {
         text-align: center;
         line-height: 1.2;
         color: var(--bac_brown);
+        font-weight: 600;
     }
     .contact{
         margin-left: 50%;
@@ -144,6 +145,7 @@ export default {
         font-size: 20px;
         transform: translateX(-50%);
         opacity: .05;
+        font-weight: 700;
     }
     /* @keyframes move1 {
 	0% {
@@ -320,8 +322,8 @@ export default {
         }
     }
     @media screen and ( min-width: 1200px){
-        .section_banner{
-            height: 100vh;
+        .container{
+            width: auto;
         }
         .banner_wrap{
             height: 100%;

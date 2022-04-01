@@ -12,9 +12,9 @@ export default {
             </h1>
         </a>
         <a href="javascript:;" class="btn">
-            <div class="line line1 open"></div>
-            <div class="line line2 open"></div>
-            <div class="line line3 open"></div>
+            <div class="line line1"></div>
+            <div class="line line2"></div>
+            <div class="line line3"></div>
             <!-- open開關要做 -->
         </a>
         <ul>
@@ -119,6 +119,7 @@ export default {
     @media screen and ( min-width: 1200px){
         /* js滾輪超過高度還要處理 */
         .main_header{
+            padding: 20px 0 0 10px;
             width: 30%;
             box-shadow: 0 0 0 0 transparent;
             position: absolute;

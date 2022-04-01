@@ -88,15 +88,18 @@ export default {
 <style scoped>
     .section_giveBack{
         padding: 40px 15px;
-        background-color: var(--bac_black);
         color: #fff;
+        background-image: url('../assets/pic/bg-image-1.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center center;
     }
     .giveback{
         margin-bottom: 20px;
         position: relative;
         text-align: center;
         font-size: 18px;
-        line-height: 1.1;
+        line-height: 1.4;
     }
     .commact{
         position: relative;
@@ -143,10 +146,11 @@ export default {
         overflow: hidden;
     }
     .give_item .txt{
-        margin-left: 15px;
+        margin-left: 25px;
     }
     .give_item .name{
-        margin-bottom: 5px;
+        margin-bottom: 10px;
+        font-weight: 700;
         color: #fff;
     }
     .give_item .work{
@@ -159,6 +163,7 @@ export default {
     .wrap2 p{
         margin-bottom: 30px;
         text-align: center;
+        font-weight: 900;
     }
     .wrap2{
         font-size: 18px;
@@ -260,6 +265,32 @@ export default {
             }
             .wrap1 .txt{
                 font-size: 20px;
+            }
+        }     
+        @media screen and ( min-width: 1200px){
+            .section_giveBack{
+                padding: 100px 30px;
+            }
+            .giveback{
+                margin-bottom: 60px;
+            }
+            .wrap2 li{
+                margin: 0;
+                width: 20%;
+            }        
+            .commat1::before,
+            .commat2::before{
+                left: 1%;
+            }
+            .commat1::after,
+            .commat2::after{
+                left: 1%;
+            }
+            .commat2::before{
+                left: 3%;
+            }
+            .commat2::after{
+                left: 3%;
             }
         }
     }

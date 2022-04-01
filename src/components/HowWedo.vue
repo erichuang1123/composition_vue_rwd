@@ -40,7 +40,7 @@ export default {
               <div class="how_title">
                 <h2>
                     <span>HOW WE</span> 
-                    DO IT
+                    <span>DO</span> IT
                 </h2>
                 <p>4 STEP TO A NEW HOME</p>
               </div>
@@ -137,9 +137,14 @@ export default {
         order: 2;
         color: #fff;
         font-size: 35px;
+        font-weight: 400;
     }
-    .how_title h2 span{
-        font-weight: 600;
+    .how_title h2 span:first-of-type{
+        font-weight: 900;
+        color: #fff;
+    }
+    .how_title h2 span:last-of-type{
+        font-weight: 900;
         color: #fff;
     }
     .how_wrap .how_title p{
@@ -178,6 +183,8 @@ export default {
     .how_wrap a{
         color: var(--color_gray);
         transition: color .3s;
+        font-weight: 600;
+        line-height: 1.3;
     }
     .how_wrap li.active span{
         color: var(--bac_brown);
@@ -222,7 +229,7 @@ export default {
             font-size: 50px;   
             line-height: 1.2;         
         }
-        .how_title h2 span{
+        .how_title h2 span:first-of-type{
             display: block;
         }
         .how_wrap h3{
@@ -236,6 +243,15 @@ export default {
         }
         .wrap2 .pic{
             width: 100%;
+        }
+    }
+    @media screen and ( min-width: 1200px){
+        .section_HowWedo{
+            padding: 90px 50px 90px;
+        }
+        .wrap2{
+            margin-left: auto;
+            width: 45%;
         }
     }
 </style>

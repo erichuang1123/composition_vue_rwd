@@ -52,6 +52,11 @@ export default {
     --bac_black : #282828;
     --bac_brown : #C4956A;
     --color_gray : #9E9E9E;
+    overflow-x: hidden;
+  }
+  .container{
+    font-family: 'Montserrat', sans-serif;
+    font-family: 'Noto Serif TC', serif;
   }
   .sr_only{
       width: 1px;
@@ -84,5 +89,11 @@ export default {
   }
   .our_page .page.active{
       background-color: var(--bac_brown);
+  }
+  @media screen and (min-width: 1200px){   
+    .container{
+      margin: 0 auto;
+      width: 1200px;
+    } 
   }
 </style>

@@ -59,12 +59,13 @@ export default {
         margin-bottom: 20px;
         text-align: center;
         font-size: 23px;
-        font-weight: 600;
+        font-weight: 900;
     }
     .award_title p{
         margin-bottom: 25px;
         text-align: center;
         color: var(--bac_brown);
+        font-weight: 900;
     }
     .wrap2{
         display: flex;
@@ -73,7 +74,7 @@ export default {
     .award_tit .number{
         margin-bottom: 5px;
         font-size: 30px;
-        font-weight: 600;
+        font-weight: 900;
     }
     .award_tit p{
         margin-bottom: 15px;
@@ -165,7 +166,6 @@ export default {
         .award_title p{
             margin-bottom: 50px;
             text-align: left;
-            font-weight: 600;
         }
         .wrap2{
             width: 40%;
@@ -207,6 +207,30 @@ export default {
     @media screen and ( min-width: 992px){
         .award_title h2{
             font-size: 29px;
+        }
+    }
+    @media screen and ( min-width: 1200px){
+        .section_award{
+            padding: 90px 50px;
+            background-size: 70%;
+        }
+        .wrap2{
+            width: 25%;
+        }
+        .wrap2 .award_item{
+            margin-bottom: 40px;
+        }
+        .wrap2 .number{
+            margin-bottom: 0;
+            font-size: 50px;
+        }
+        .award_tit p::before{
+            content: '';
+            height: 5px;
+        }
+        .wrap2 p{
+            font-size: 20px;
+            line-height: 1.2;
         }
     }
     

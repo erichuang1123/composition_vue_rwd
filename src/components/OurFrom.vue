@@ -42,14 +42,14 @@ export default {
     .ourFrom_title h2{
         margin-bottom: 15px;
         font-size: 25px;
-        font-weight: 600;
+        font-weight: 900;
         line-height: 1.2;
     }
     .ourFrom_title p{
         margin-bottom: 25px;
         color: var(--bac_brown);
         font-size: 18px;
-        font-weight: 600;
+        font-weight: 800;
     }
      .ourFrom_from{
         margin: 0 auto;
@@ -73,7 +73,7 @@ export default {
         color: #fff;
     }
     .ourFrom_from input:last-of-type{
-        margin-bottom: 35px;
+        margin-bottom: 55px;
     }
     .ourFrom_from input::placeholder{
         color: #fff;
@@ -83,7 +83,7 @@ export default {
         opacity: 0;
     }
     .ourFrom_from a{
-        padding: 10px 20px;
+        padding: 10px 30px;
         color: #fff;
         background-color: var(--bac_brown);
         border: none;
@@ -144,6 +144,15 @@ export default {
             margin: 0;
             width: 380px;
             box-shadow: 7px 7px 20px 20px #aaa8;
+        }
+    }
+    @media screen and ( min-width: 1200px){
+        .ourFrom_title{
+            margin: 0;
+        }
+        .our_wrap{
+            margin-left: auto;
+            width: 40%;
         }
     }
 </style>
