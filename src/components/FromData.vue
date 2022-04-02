@@ -1,11 +1,27 @@
 <script>
+import { useBacMove } from '@/composition-api/index.js'
+import { ref } from '@vue/reactivity';
+import { onMounted } from '@vue/runtime-core';
 export default {
-
+    setup(){
+        const section = ref(null);
+        const moveX = ref(0);
+        const moveY = ref(0);
+        onMounted(()=>{
+            section.value.addEventListener('mousemove',(e)=>{
+                const { x, y } = useBacMove(section,e);
+                moveX.value = (x.value + (window.innerWidth / 5)) + 'px';
+                moveY.value = (y.value + (window.innerWidth / 15))+ 'px';
+                                            //第一個數字是為了調整位置 
+            })
+        })
+        return { section , moveX , moveY }
+    }
 }
 </script>
 
 <template>
-  <section class="section section_FromData">
+  <section class="section section_FromData" ref="section">      
       <div class="container">
           <div class="from_wrap wrap1">
               <div class="from_item">
@@ -62,6 +78,7 @@ export default {
 <style scoped>
     .section_FromData{
         padding: 40px 0;
+        position: relative;
     }
     .wrap1{
         margin-bottom: 40px;
@@ -85,6 +102,9 @@ export default {
         transform: translateX(20px);
         background-color: #C4956A99;
         border-radius: 50%;
+    }
+    .from_item .title .pic svg{
+        pointer-events: none;
     }
     .from_item .title h3{
         margin-bottom: 15px;
@@ -162,13 +182,13 @@ export default {
     }
     @media screen and ( min-width: 768px){
         .section_FromData{
+            --xmove : v-bind(moveX);
+            --ymove : v-bind(moveY);
+            padding: 80px 50px;
             background-image: url('../assets/pic/index-7-694x539.jpg');
             background-repeat: no-repeat;
-            background-size: contain;
-            background-position: center;
-        }
-        .section_FromData{
-            padding: 70px 50px;
+            background-size: 60%;
+            background-position: var(--xmove) var(--ymove);
         }
         .container{
             display: flex;
@@ -222,7 +242,7 @@ export default {
     }
     @media screen and ( min-width: 992px){
         .section_FromData{
-            padding: 120px 0px 100px;
+            padding: 130px 0px 100px;
         }
         .from_item .txt p{
             width: 240px;
@@ -232,7 +252,7 @@ export default {
     }
     @media screen and ( min-width: 1200px){
         .section_FromData{
-            background-size: 60%;
+            background-size: 50%;
         }
     }
 </style>

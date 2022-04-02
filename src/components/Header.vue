@@ -1,5 +1,26 @@
 <script>
+import { ref } from '@vue/reactivity'
+import { useStore } from 'vuex'
+import store from '@/store'
+import { watch } from '@vue/runtime-core'
 export default {
+    setup(){
+        const store = useStore();
+        const open = ref(store.state.menuOpen);
+        const scroll = ref(false);
+        const openHandler = ()=>{
+            store.dispatch('openHandler');
+            open.value = store.state.menuOpen
+        }
+        console.log(window.addEventListener('scroll',(e)=>{
+            if(scrollY >= window.innerHeight){
+                scroll.value = true;
+            }else{
+                scroll.value = false;
+            }
+        }));
+        return {open,openHandler,scroll}
+    }
 }
 </script>
 
@@ -11,13 +32,13 @@ export default {
                 <span class="sr_only">SPECTRUM</span>
             </h1>
         </a>
-        <a href="javascript:;" class="btn">
-            <div class="line line1"></div>
-            <div class="line line2"></div>
-            <div class="line line3"></div>
+        <a href="javascript:;" :class="['btn',{scroll : scroll}]" @click="openHandler">
+            <div :class="['line','line1',{open : open}]"></div>
+            <div :class="['line','line2',{open : open}]"></div>
+            <div :class="['line','line3',{open : open}]"></div>
             <!-- open開關要做 -->
         </a>
-        <ul>
+        <ul :class="[{scroll : scroll},{active : open}]">
             <li>
                 <a href="javascript:;">Home</a>
             </li>
@@ -93,12 +114,15 @@ export default {
         width: 250px;
         height: 100vh;
         position: absolute;
-        top: 100%;
         box-shadow: 1px 1px 2px 2px #0005;
         transform: translate(-120%);
-        transition: transfrom .3s;
+        transition: top .3s;
         background-color: var(--bac_black);
         z-index: 25;
+    }
+    ul.active {
+        top: 58px;
+        transform: translate(0%);
     }
     ul li a{
         padding: 15px 10px;
@@ -112,9 +136,6 @@ export default {
     }
     .phone a{
         font-size: 20px;
-    }
-    ul.active {
-        transform: translate(0%);
     }
     @media screen and ( min-width: 1200px){
         /* js滾輪超過高度還要處理 */
@@ -130,7 +151,7 @@ export default {
             width: 650px;
             height: 80px;
             top: -250%;
-            left: 85.6%;
+            right: -1508px;
             display: flex;
             align-items: center;
             background-color: #fff;
@@ -138,7 +159,23 @@ export default {
         }
         ul.active{
             top: 0;
-            left: 85.6%;
+            right: -680px;
+        }        
+        .btn.scroll{
+            padding: 10px;
+            position: fixed;
+            left: 50px;
+            background-color: #000;
+        }
+        ul.scroll{
+            position: fixed;
+            top: -250%;
+            left: 50%; 
+            transform: translate(-50%);
+            transition: top .6s ease;
+        }
+        ul.scroll.active{
+            top: 0;
         }
         ul li{
             padding: 0 10px;

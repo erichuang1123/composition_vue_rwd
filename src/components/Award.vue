@@ -1,11 +1,26 @@
 <script>
+import { useBacMove } from '@/composition-api/index.js'
+import { ref } from '@vue/reactivity'
+import { onMounted } from '@vue/runtime-core';
 export default {
-    
+    setup(){
+        const section = ref(null);  
+        const moveX = ref(0);
+        const moveY = ref(0);
+        onMounted(()=>{
+            section.value.addEventListener('mousemove',(e)=>{
+                const { x, y } = useBacMove(section,e);
+                moveX.value = (x.value + (window.innerWidth / 5)) + 'px';
+                moveY.value = (y.value + (window.innerWidth / 15))+ 'px';
+            })
+        })
+        return { section , moveX, moveY }
+    }
 }
 </script>
 
 <template>
-    <section class="section section_award">
+    <section class="section section_award" ref="section">
         <div class="container">
             <div class="award_wrap wrap1">
                 <div class="award_title">
@@ -144,11 +159,13 @@ export default {
     }
     @media screen and ( min-width: 768px){
         .section_award{
+            --xmove : v-bind(moveX);
+            --ymove : v-bind(moveY);
             padding: 70px 50px 90px;
             background-image: url('../assets/pic/index-8-853x574.jpg');
             background-repeat: no-repeat;
-            background-position: center center;
-            background-size: 110%;
+            background-position: var(--xmove) var(--ymove);
+            background-size: 70%;
         }
         .container{
             display: flex;
@@ -212,7 +229,7 @@ export default {
     @media screen and ( min-width: 1200px){
         .section_award{
             padding: 90px 50px;
-            background-size: 70%;
+            background-size: 50%;
         }
         .wrap2{
             width: 25%;

@@ -1,5 +1,5 @@
 <script>
-import { reactive } from '@vue/reactivity'
+import { reactive, ref } from '@vue/reactivity'
 export default {
     setup(){
         const domArr = reactive({data : [
@@ -28,13 +28,14 @@ export default {
                 src : '../assets/pic/index-4-531x327.jpg',
             }
         ]})
-        return {domArr}
+        const section = ref(null);
+        return {domArr,section}
     }
 }
 </script>
 
 <template>
-  <section class="section section_HowWedo">
+  <section class="section section_HowWedo" ref="section">
       <div class="container">
           <div class="how_wrap wrap1">
               <div class="how_title">

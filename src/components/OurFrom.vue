@@ -1,11 +1,25 @@
 <script>
+import { useBacMove } from '@/composition-api/index.js'
+import { onMounted, ref } from '@vue/runtime-core';
 export default {
-
+    setup(){
+        const section = ref(null);  
+        const moveX = ref(0);
+        const moveY = ref(0);
+        onMounted(()=>{
+            section.value.addEventListener('mousemove',(e)=>{
+                const { x, y } = useBacMove(section,e);
+                moveX.value = (x.value + (window.innerWidth / 7)) + 'px';
+                moveY.value = (y.value + (window.innerWidth / 15))+ 'px';
+            })
+        })
+        return { section , moveX, moveY }
+    }
 }
 </script>
 
 <template>
-    <section class="section section_ourFrom">
+    <section class="section section_ourFrom" ref="section">
         <div class="container">
             <div class="rwd_wrap">
                 <img src="../assets/pic/index-6-538x694.png" alt="">
@@ -32,6 +46,7 @@ export default {
 <style scoped>
     .section_ourFrom{
         padding: 50px 0;
+        position: relative;
     }
     .rwd_wrap{
         display: none;
@@ -94,7 +109,13 @@ export default {
     }
     @media screen and ( min-width: 768px){
         .section_ourFrom{
+            --xmove : v-bind(moveX);
+            --ymove : v-bind(moveY);
             padding: 40px 50px;
+            background-image: url('../assets/pic/index-9-1047x531.jpg');
+            background-repeat: no-repeat;
+            background-size: 110%;
+            background-position: var(--xmove) var(--ymove);
         }
         .ourFrom_title{
             margin: 0 auto;
@@ -116,10 +137,7 @@ export default {
     @media screen and ( min-width: 992px){
         .section_ourFrom{
             padding-top: 0;
-            background-image: url('../assets/pic/index-9-1047x531.jpg');
-            background-repeat: no-repeat;
-            background-size: contain;
-            background-position: center center;
+            background-size: 80%;
         }
         .container{
             display: flex;

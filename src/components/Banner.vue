@@ -1,28 +1,31 @@
 <script>
-import { reactive } from '@vue/reactivity'
+import { reactive, ref } from '@vue/reactivity'
+import { useSwitchScreen } from '@/composition-api/index.js'
+import { watch } from '@vue/runtime-core'
 export default {
     setup(){
         const dataArr = reactive({data : [
             {
-                url : '../assets/pic/slide-1-1339x729.jpg',
+                src : require('../assets/pic/slide-1-1339x729.jpg'),
                 li1 : '2750 DUFFY ST',
                 li2 : '200 SQ. M.',
                 li3 : '$ 240 000',
             },
             {
-                url : '../assets/pic/slide-2-1339x729.jpg',
+                src : require('../assets/pic/slide-2-1339x729.jpg'),
                 li1 : '5032 HEWES AVE',
                 li2 : '290 SQ. M.',
                 li3 : '$ 390 000',
             },
             {
-                url : '../assets/pic/slide-3-1339x729.jpg',
+                src : require('../assets/pic/slide-3-1339x729.jpg'),
                 li1 : '2239 WILMAR FARM RD',
                 li2 : '350 SQ. M.',
                 li3 : '$ 340 000',
             }
         ]})
-        return {dataArr}
+        const {number,nextFn,prevFn} = useSwitchScreen(dataArr.data.length)
+        return {dataArr,number,nextFn,prevFn,open}
     }
 }
 </script>
@@ -42,23 +45,27 @@ export default {
                 </p>
                 <a class="contact" href="javascript:;">CONTACT US</a>
                 <div class="control_btn">
-                    <a href="javascript:;" class="prev">
+                    <a href="javascript:;" class="prev" @click="prevFn">
                         <i class="fa fa-arrow-left" aria-hidden="true"></i>
                     </a>
-                    <a href="javascript:;" class="next">
+                    <a href="javascript:;" class="next" @click="nextFn">
                         <i class="fa fa-arrow-right" aria-hidden="true"></i>
                     </a>
                 </div>
             </div>
             <div class="banner_wrap wrap2">
-                <div class="pic">
-                    <img src="../assets/pic/slide-1-1339x729.jpg" alt="房子">
+                <transition-group name="fad">
+                <div :class="['banner_item',{none : index !== number}]" v-for="(item,index) in dataArr.data" :key="item.li1" v-show="index == number">
+                    <div class="pic">
+                        <img :src="item.src" alt="房子">
+                    </div>
+                    <ul>
+                        <li>{{item.li1}}</li>
+                        <li>{{item.li2}}</li>
+                        <li>{{item.li3}}</li>
+                    </ul>
                 </div>
-                <ul>
-                    <li>2750 DUFFY ST</li>
-                    <li>200 SQ. M.</li>
-                    <li>$ 240 000</li>
-                </ul>
+                </transition-group>
             </div>
             <div class="banner_footer">
                 54+ WORKS
@@ -137,6 +144,18 @@ export default {
     .banner_wrap ul li{
         margin: 0 20px;
         font-weight: 600;
+    }
+    .wrap2{
+        position: relative;
+    }
+    .banner_item{
+        position: relative;
+    }
+    .banner_item.none{
+        position: absolute;
+        width: 100%;
+        top: 0;
+        left: 0px;
     }
     .banner_footer{
         position: absolute;
@@ -299,7 +318,6 @@ export default {
             bottom: 60px;
             background-color: var(--bac_brown);
         }
-       
         .wrap2{
             width: 70%;
         }
@@ -320,6 +338,9 @@ export default {
         .wrap2 ul li{
             margin-bottom: 0;
         }
+        .control_btn{
+            box-shadow: 15px 15px 25px 20px #0005;
+        }
     }
     @media screen and ( min-width: 1200px){
         .container{
@@ -329,12 +350,13 @@ export default {
             height: 100%;
         }
         .wrap1 h2{
+            margin-top: 30px;
             margin-bottom: 30px;
             font-size: 45px;
             text-align: center;
         } 
         h2::before{
-            top: 500px;
+            top: 470px;
         }
         .wrap1 p{
             margin-bottom: 80px;
@@ -347,7 +369,7 @@ export default {
         .wrap1 .control_btn{
             padding: 30px 20px;
             left: 44%;
-            bottom: -5%;
+            bottom: 0%;
         }
         .wrap2 .pic{
             height: 600px;

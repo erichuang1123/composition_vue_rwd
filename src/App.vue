@@ -89,7 +89,25 @@ export default {
   }
   .our_page .page.active{
       background-color: var(--bac_brown);
+  }  
+  /* transition標籤動畫 */
+  .fad-enter-active,
+  .fad-leave-active{ 
+      transition: opacity .5s ease;
   }
+  .fad-enter-from{
+    opacity : 0;
+  }
+  .fad-enter-to{
+    opacity : 1;
+  }
+  .fad-leave-from{
+    opacity : 1;
+  }
+  .fad-leave-to{
+    opacity : 0;
+  }
+
   @media screen and (min-width: 1200px){   
     .container{
       margin: 0 auto;
