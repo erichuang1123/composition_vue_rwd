@@ -1,11 +1,19 @@
 <script>
+import { ref } from '@vue/reactivity'
+import { onMounted } from '@vue/runtime-core';
 export default {
-
+    setup(props,context){
+        const footer = ref(null);
+        onMounted(()=>{
+            context.emit('footer',footer)
+        })
+        return {footer}
+    }
 }
 </script>
 
 <template>
-    <footer class="sectopn main_footer">
+    <footer class="sectopn main_footer" ref="footer">
         <a href="javascript:;">
             <h2>
                 <img src="../assets/pic/logo-inverse-2-54x63.png" alt="">

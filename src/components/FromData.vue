@@ -2,11 +2,13 @@
 import { useBacMove } from '@/composition-api/index.js'
 import { ref } from '@vue/reactivity';
 import { onMounted } from '@vue/runtime-core';
+import { useScrollAddClass} from '@/composition-api/useScrollAddClass'
 export default {
-    setup(){
+    setup(props,context){
         const section = ref(null);
         const moveX = ref(0);
         const moveY = ref(0);
+        const open = ref(undefined);
         onMounted(()=>{
             section.value.addEventListener('mousemove',(e)=>{
                 const { x, y } = useBacMove(section,e);
@@ -14,14 +16,20 @@ export default {
                 moveY.value = (y.value + (window.innerWidth / 15))+ 'px';
                                             //第一個數字是為了調整位置 
             })
+            window.addEventListener('scroll',()=>{
+                if(open.value == undefined){
+                    open.value = useScrollAddClass(section);
+                }
+            })
+            context.emit('fromData',section)
         })
-        return { section , moveX , moveY }
+        return { section , moveX , moveY , open}
     }
 }
 </script>
 
 <template>
-  <section class="section section_FromData" ref="section">      
+  <section :class="['section','section_FromData',{active : open}]" ref="section">      
       <div class="container">
           <div class="from_wrap wrap1">
               <div class="from_item">

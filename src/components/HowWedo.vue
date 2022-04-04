@@ -1,5 +1,7 @@
 <script>
 import { reactive, ref } from '@vue/reactivity'
+import { onMounted } from '@vue/runtime-core';
+import { useScrollAddClass} from '@/composition-api/useScrollAddClass'
 export default {
     setup(){
         const domArr = reactive({data : [
@@ -7,35 +9,57 @@ export default {
                 title : 'MEET AND DEFINE GOALS',
                 content1 : 'The first thing we do is meeting with our clients and talk through their goals on a future project. During this meeting, feel free to communicate your ideas and ask lots of questions.',
                 content2 : 'This stage is highly decisive as you can evaluate the work of your potential architect by browsing their portfolio. As a client, you may also assess whether the architect listens to your needs and confirms that he or she understands them.',
-                src : '../assets/pic/index-1-531x327.jpg'
+                src : require('../assets/pic/index-1-531x327.jpg')
             },
             {
                 title : 'WORKING ON THE CONCEPT',
                 content1 : 'The next step of our cooperation lies in developing the concept of your future home. It helps us define every single factor that makes the construction process of your home successful.',
                 content2 : 'Our team of designers and architects has to plan every single step of the project to make sure that the final result will meet not only your requirements but also international construction and safety standards. This is when monitoring & control begin.',
-                src : '../assets/pic/index-2-531x327.jpg',
+                src : require('../assets/pic/index-2-531x327.jpg'),
             },
             {
                 title : 'BUILDING YOUR HOME',
                 content1 : 'There’s no doubt that the most important and responsible part of building a home is its construction process. As we work with reliable contractors, a great result is guaranteed.',
                 content2 : 'This stage is one of the most complex ones as it includes a variety of tasks that must be controlled - from preparing the construction site to installing insulation and completing drywall as well as working on exterior.',
-                src : '../assets/pic/index-3-531x327.jpg',
+                src : require('../assets/pic/index-3-531x327.jpg'),
             },
             {
                 title : 'COMPLETING A PROJECT',
                 content1 : 'When the project gets to its final stage, our quality control team conducts the final check of the building to make sure everything has been carried out the proper way.s',
                 content2 : 'Our employees will also make sure that all interior elements & fixtures are correctly installed during this final step. After everything is completed, we invite our client to assess the final result and experience the quality performance of our project.',
-                src : '../assets/pic/index-4-531x327.jpg',
+                src : require('../assets/pic/index-4-531x327.jpg'),
             }
         ]})
         const section = ref(null);
-        return {domArr,section}
+        const showObj = reactive({data : {}});
+        showObj.data = domArr.data[0];
+        const index = ref(0);
+        const open = ref(undefined);
+        let timer = null;
+        const isOpen = ref(true)
+        const clickFn = (number) => {
+            clearTimeout(timer);
+            isOpen.value = false;
+            timer = setTimeout(()=>{
+                showObj.data = domArr.data[number];
+                index.value = number;
+                isOpen.value = true;
+            },400)
+        }
+        onMounted(()=>{
+            window.addEventListener('scroll',()=>{
+                if(open.value == undefined){
+                    open.value = useScrollAddClass(section);
+                }
+            })
+        })
+        return {section,clickFn,showObj,index,isOpen,open}
     }
 }
 </script>
 
 <template>
-  <section class="section section_HowWedo" ref="section">
+  <section :class="['section','section_HowWedo',{active:open}]" ref="section">
       <div class="container">
           <div class="how_wrap wrap1">
               <div class="how_title">
@@ -45,41 +69,41 @@ export default {
                 </h2>
                 <p>4 STEP TO A NEW HOME</p>
               </div>
-              <div class="txt">
-                  <h3>MEET AND DEFINE GOALS</h3>
-                  <p>The first thing we do is meeting with our clients and talk through their goals on a future project. During this meeting, feel free to communicate your ideas and ask lots of questions.</p>
-                  <p>This stage is highly decisive as you can evaluate the work of your potential architect by browsing their portfolio. As a client, you may also assess whether the architect listens to your needs and confirms that he or she understands them.</p>
+              <div :class="['txt',{open:isOpen}]">
+                  <h3>{{showObj.data.title}}</h3>
+                  <p>{{showObj.data.content1}}</p>
+                  <p>{{showObj.data.content2}}</p>
               </div>
           </div>
           <div class="how_wrap wrap2">
               <ul>
-                  <li class="active">
+                  <li :class="{active : index == 0}" @click="clickFn(0)">
                       <span>01</span>
                       <a href="javascript:;">
                           ACQUAINTANCE WITH THE CUSTOMER
                       </a>
                   </li>
-                  <li>
+                  <li :class="{active : index == 1}" @click="clickFn(1)">
                       <span>02</span>
                       <a href="javascript:;">
                           PROJECT CONCEPT DEVELOPMENT
                       </a>
                   </li>
-                  <li>
+                  <li :class="{active : index == 2}" @click="clickFn(2)">
                       <span>03</span>
                       <a href="javascript:;">
                           WORKING ON INTERIOR AND EXTERIOR
                       </a>
                   </li>
-                  <li>
+                  <li :class="{active : index == 3}" @click="clickFn(3)">
                       <span>04</span>
                       <a href="javascript:;">
                           FINISHING TOUCHES FOR YOUR FUTURE HOME
                       </a>
                   </li>
               </ul>
-              <div class="pic">
-                  <img src="../assets/pic/index-1-531x327.jpg" alt="">
+              <div :class="['pic',{open:isOpen}]">
+                  <img :src="showObj.data.src" alt="">
               </div>
           </div>
       </div>
@@ -129,6 +153,20 @@ export default {
         position: relative;
         z-index: 2;
     }
+    .wrap1 .txt{
+        opacity: 0;
+        transition: .05s;
+    }
+    .wrap1 .txt.open{
+        opacity: 1;
+    }
+    .wrap2 .pic{
+        opacity: 0;
+        transition: .02s;
+    }
+    .wrap2 .pic.open{
+        opacity: 1;
+    }
     .how_title{
         display: flex;
         flex-direction: column;
@@ -175,6 +213,13 @@ export default {
     .how_wrap li{
         padding: 10px 0;
         display: flex;
+        cursor: pointer;
+    }
+    .how_wrap li:hover span{
+        color: var(--bac_brown);
+    }
+    .how_wrap li:hover a{
+        color: #fff;
     }
     .how_wrap span{
         margin-right: 10px;

@@ -2,30 +2,70 @@
 import { ref } from '@vue/reactivity'
 import { useStore } from 'vuex'
 import store from '@/store'
-import { watch } from '@vue/runtime-core'
+import { onMounted, watch } from '@vue/runtime-core'
 export default {
-    setup(){
+    props : {
+        domArr : {
+            type : Object,
+            default : {}
+        }
+    },
+    setup(props){
+        const menu = ref(null)
         const store = useStore();
         const open = ref(store.state.menuOpen);
         const scroll = ref(false);
+        let nowMove = 0;
+        const liActive = ref(0);
+        let timer = null;
         const openHandler = ()=>{
-            store.dispatch('openHandler');
-            open.value = store.state.menuOpen
+            open.value = !open.value;
         }
-        console.log(window.addEventListener('scroll',(e)=>{
+        window.addEventListener('scroll',(e)=>{
             if(scrollY >= window.innerHeight){
                 scroll.value = true;
             }else{
                 scroll.value = false;
             }
-        }));
-        return {open,openHandler,scroll}
+        });
+        onMounted(()=>{
+            // props.domArr.data.forEach((e,index)=>{
+            //     e.addEventListener('click',()=>{
+            //     })
+            // })
+            menu.value.querySelectorAll('li').forEach((dom,index)=>{
+                dom.addEventListener('click',(e)=>{
+                    clearInterval(timer);
+                    liActive.value = index;
+                    nowMove = window.scrollY;
+                    moveFn(e,index);
+                    // console.log(window.scrollY - props.domArr.data[index].offsetTop);
+                    // window.scrollTo(0,props.domArr.data[index].offsetTop)
+                })
+            })
+        })
+        function moveFn(e,index){
+            let top = props.domArr.data[index].offsetTop;
+            console.log(top);
+            timer = setInterval(()=>{
+                nowMove+=10;
+                window.scrollTo(0,nowMove);
+                let last = props.domArr.data[props.domArr.data.length-1].offsetTop - ((props.domArr.data[props.domArr.data.length-1].offsetHeight) + 200);
+                // let last = props.domArr.data[props.domArr.data.length-1].offsetTop;
+                // last設定出來解決最後一個會跳的問題
+                if(window.scrollY >= top || window.scrollY > last){
+                    clearInterval(timer);
+                    window.scrollTo(0,top);
+                }
+            },100)
+        }
+        return {open,openHandler,scroll,menu,liActive}
     }
 }
 </script>
 
 <template>
-    <header class="section main_header">
+    <header class="main_header">
         <a href="javascript:;">
             <h1>
                 <img src="../assets/pic/logo-inverse-169x42.png" alt="logo">
@@ -38,23 +78,23 @@ export default {
             <div :class="['line','line3',{open : open}]"></div>
             <!-- open開關要做 -->
         </a>
-        <ul :class="[{scroll : scroll},{active : open}]">
-            <li>
+        <ul :class="[{scroll : scroll},{active : open}]" ref="menu">
+            <li :class="{active:liActive == 0}">
                 <a href="javascript:;">Home</a>
             </li>
-            <li>
+            <li :class="{active:liActive == 1}">
                 <a href="javascript:;">About</a>
             </li>
-            <li>
+            <li :class="{active:liActive == 2}">
                 <a href="javascript:;">Team</a>
             </li>
-            <li>
+            <li :class="{active:liActive == 3}">
                 <a href="javascript:;">Portfolio</a>
             </li>
-            <li>
+            <li :class="{active:liActive == 4}">
                 <a href="javascript:;">Contacts</a>
             </li>
-            <li class="phone">
+            <li :class="['phone',{active:liActive == 4}]">
                 <a href="javascript:;">
                     <i class="fa fa-mobile" aria-hidden="true"></i>
                      1-300-123-1234
@@ -130,6 +170,10 @@ export default {
         color: #666;
         transition: color .3s,background-color .3s;
     }
+    ul li.active a{
+        color: #fff;
+        background-color: var(--bac_brown);
+    }
     ul li:hover a{
         color: #fff;
         background-color: var(--bac_brown);
@@ -157,6 +201,7 @@ export default {
             background-color: #fff;
             transition: top .3s;
         }
+        
         ul.active{
             top: 0;
             right: -680px;
@@ -180,9 +225,17 @@ export default {
         ul li{
             padding: 0 10px;
         }
+        ul li.active a{
+            color: var(--bac_brown);
+            background-color: transparent;
+        }
         ul li a{
             color: #000;
             font-weight: 600;
+        }
+        ul li:hover a{
+            color: var(--bac_brown);
+            background-color: transparent;
         }
         .fa-mobile{
             color: var(--color_gray);

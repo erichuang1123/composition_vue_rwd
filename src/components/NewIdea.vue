@@ -1,11 +1,26 @@
 <script>
+import { useScrollAddClass} from '@/composition-api/useScrollAddClass'
+import { ref } from '@vue/reactivity';
+import { onMounted } from '@vue/runtime-core';
 export default {
+    setup(){
+        const open = ref(undefined);
+        const section = ref(null);
+         onMounted(()=>{
+            window.addEventListener('scroll',()=>{
+                if(open.value == undefined){
+                    open.value = useScrollAddClass(section);
+                }
+            })
+        })
+        return {section , open}
+    }
 
 }
 </script>
 
 <template>
-    <section class="section section_findNew">
+    <section :class="['section','section_findNew',{active:open}]" ref="section">
         <div class="container">
             <div class="find_title">
                 <h2><span>FIND NEW IDEAS AND</span> INSPIRATION IN OUR BLOG</h2>

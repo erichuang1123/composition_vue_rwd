@@ -2,25 +2,32 @@
 import { useBacMove } from '@/composition-api/index.js'
 import { ref } from '@vue/reactivity'
 import { onMounted } from '@vue/runtime-core';
+import { useScrollAddClass} from '@/composition-api/useScrollAddClass'
 export default {
     setup(){
         const section = ref(null);  
         const moveX = ref(0);
         const moveY = ref(0);
+        const open = ref(undefined);
         onMounted(()=>{
             section.value.addEventListener('mousemove',(e)=>{
                 const { x, y } = useBacMove(section,e);
                 moveX.value = (x.value + (window.innerWidth / 5)) + 'px';
                 moveY.value = (y.value + (window.innerWidth / 15))+ 'px';
             })
+            window.addEventListener('scroll',()=>{
+                if(open.value == undefined){
+                    open.value = useScrollAddClass(section);
+                }
+            })
         })
-        return { section , moveX, moveY }
+        return { section , moveX, moveY , open}
     }
 }
 </script>
 
 <template>
-    <section class="section section_award" ref="section">
+    <section :class="['section','section_award',{active:open}]" ref="section">
         <div class="container">
             <div class="award_wrap wrap1">
                 <div class="award_title">

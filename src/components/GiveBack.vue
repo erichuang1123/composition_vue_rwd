@@ -1,54 +1,81 @@
 <script>
-import { reactive } from '@vue/reactivity'
+import { reactive, ref } from '@vue/reactivity'
+import { useScrollAddClass } from '@/composition-api/useScrollAddClass'
+import { onMounted } from '@vue/runtime-core';
 export default {
     setup(){
-        const arrData = reactive({data : [
+        const domArr = reactive({data : [
             {
                 giveback : 'I have worked with many companies offering design & architecture services, and out of all you were one who really stood out from the rest and did a great job.',
-                src : '../assets/pic/user-1-80x80.jpg',
+                src : require('../assets/pic/user-1-80x80.jpg'),
                 name : 'KATE WILLIAMS',
                 profession : 'Entrepreneur'
             },
             {
                 giveback : 'I was looking for top-notch creativity and quality service and I found what I needed in your team. You took all my ideas and demands into consideration and made a great project.',
-                src : '../assets/pic/user-2-80x80.jpg',
+                src : require('../assets/pic/user-2-80x80.jpg'),
                 name : 'ANN LEE',
                 profession : 'Freelancer'
             },
             {
                 giveback : 'I selected Spectrum because of their architects’ rigorous design background and education. They exceeded my expectations and did a great a job on extending and redesigning my house.',
-                src : '../assets/pic/user-3-80x80.jpg',
+                src : require('../assets/pic/user-3-80x80.jpg'),
                 name : 'SAM MCMILLAN',
                 profession : 'Manager'
             }
         ]})
-        return {arrData}
+        const section = ref(null);
+        const showObj = reactive({data : {}})
+        const index = ref(0);
+        const open = ref(undefined);
+        let timer = null;
+        showObj.data = domArr.data[0];
+        const clickFn = (number) => {
+            clearInterval(timer);
+            showObj.data = domArr.data[number];
+            index.value = number;
+            timer = setInterval(() => {
+                index.value+=1;
+                if(index.value > domArr.data.length - 1){
+                    index.value = 0;
+                }
+                showObj.data = domArr.data[index.value];
+            }, 3000);
+        }
+        onMounted(()=>{
+            window.addEventListener('scroll',()=>{
+                if(open.value == undefined){
+                    open.value = useScrollAddClass(section);
+                }
+            })
+        })
+        return {domArr , showObj , index , clickFn , open , section}
     }
 }
 </script>
 
 <template>
-  <div class="section section_giveBack">
+  <div :class="['section','section_giveBack',{active:open}]" ref="section">
       <div class="container">
            <div class="commact">
                <div class="commat1"></div>
                <div class="commat2"></div>
            </div>
-           <div class="giveback">I have worked with many companies offering design & architecture services, and out of all you were one who really stood out from the rest and did a great job.</div>
+           <div class="giveback">{{showObj.data.giveback}}</div>
            <div class="give_wrap wrap1">
               <div class="give_item">
                 <div class="pic">
-                    <img src="../assets/pic/user-1-80x80.jpg" alt="">
+                    <img :src="showObj.data.src" alt="">
                 </div>
                 <div class="txt">
-                    <div class="name">KATE WILLIAMS</div>
-                    <div class="work">Entrepreneur</div>
+                    <div class="name">{{showObj.data.name}}</div>
+                    <div class="work">{{showObj.data.profession}}</div>
                 </div>
             </div>
             <div class="our_page">
-                <a href="javascript:;" class="page"></a>
-                <a href="javascript:;" class="page"></a>
-                <a href="javascript:;" class="page"></a>
+                <a href="javascript:;" :class="['page',{active:index == 0}]" @click="clickFn(0)"></a>
+                <a href="javascript:;" :class="['page',{active:index == 1}]" @click="clickFn(1)"></a>
+                <a href="javascript:;" :class="['page',{active:index == 2}]" @click="clickFn(2)"></a>
             </div>
         </div>
           <div class="give_wrap wrap2">

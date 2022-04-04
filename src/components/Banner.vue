@@ -1,9 +1,9 @@
 <script>
 import { reactive, ref } from '@vue/reactivity'
 import { useSwitchScreen } from '@/composition-api/index.js'
-import { watch } from '@vue/runtime-core'
+import { onMounted, watch } from '@vue/runtime-core'
 export default {
-    setup(){
+    setup(props,context){
         const dataArr = reactive({data : [
             {
                 src : require('../assets/pic/slide-1-1339x729.jpg'),
@@ -25,13 +25,17 @@ export default {
             }
         ]})
         const {number,nextFn,prevFn} = useSwitchScreen(dataArr.data.length)
-        return {dataArr,number,nextFn,prevFn,open}
+        const dom = ref(null);
+        onMounted(()=>{
+            context.emit('banner',dom)
+        })        
+        return {dataArr,number,nextFn,prevFn,open,dom}
     }
 }
 </script>
 
 <template>
-    <section class="section section_banner">
+    <section class="section_banner" ref="dom">
         <div class="container">
             <div class="banner_wrap wrap1">     
                 <h2>
@@ -105,6 +109,10 @@ export default {
         transform: translate(-50%);
         color: #fff;
         font-weight: 600;
+        transition: background-color .3s;
+    }
+    .contact:hover{
+        background-color: var(--bac_brown);
     }
     .control_btn{
         padding: 10px;

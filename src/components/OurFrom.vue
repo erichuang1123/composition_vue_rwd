@@ -1,11 +1,13 @@
 <script>
 import { useBacMove } from '@/composition-api/index.js'
 import { onMounted, ref } from '@vue/runtime-core';
+import { useScrollAddClass} from '@/composition-api/useScrollAddClass'
 export default {
     setup(){
         const section = ref(null);  
         const moveX = ref(0);
         const moveY = ref(0);
+        const open = ref(undefined);
         onMounted(()=>{
             section.value.addEventListener('mousemove',(e)=>{
                 const { x, y } = useBacMove(section,e);
@@ -13,13 +15,20 @@ export default {
                 moveY.value = (y.value + (window.innerWidth / 15))+ 'px';
             })
         })
-        return { section , moveX, moveY }
+        onMounted(()=>{
+            window.addEventListener('scroll',()=>{
+                if(open.value == undefined){
+                    open.value = useScrollAddClass(section);
+                }
+            })
+        })
+        return { section , moveX, moveY , open}
     }
 }
 </script>
 
 <template>
-    <section class="section section_ourFrom" ref="section">
+    <section :class="['section','section_ourFrom',{active:open}]" ref="section">
         <div class="container">
             <div class="rwd_wrap">
                 <img src="../assets/pic/index-6-538x694.png" alt="">

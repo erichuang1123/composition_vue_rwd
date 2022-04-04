@@ -10,6 +10,8 @@ import NewIdea from '@/components/NewIdea.vue'
 import GiveBack from '@/components/GiveBack.vue'
 import OurFrom from '@/components/OurFrom.vue'
 import Footer from '@/components/Footer.vue'
+import { reactive, ref } from '@vue/reactivity'
+import { onMounted } from '@vue/runtime-core'
 export default {
   components : {
     Header,
@@ -24,27 +26,30 @@ export default {
     OurFrom,
     Footer
   },
-  // metaInfo: {
-  //     meta: [
-  //       { charset: 'utf-8' },
-  //       { name: 'viewport', content: 'width=device-width,initial-scale=1,user-scalable=no' }
-  //     ]
-  // }
+  setup(){
+    let number = 0;
+    const domArr = reactive({data:[]});
+    const takeOf = (dom)=>{
+      domArr.data[number] = dom.value;
+      number+=1;
+    }
+    return {takeOf,domArr}
+  }
 }
 </script>
 
 <template>
-  <Header/>
-  <Banner/>
-  <FromData/>
+  <Header :domArr="domArr"/>
+  <Banner @banner="takeOf"/>
+  <FromData @fromData="takeOf"/>
   <HowWedo/>
-  <Our/>
+  <Our @our="takeOf"/>
   <Award/>
-  <Projects/>
+  <Projects @projects="takeOf"/>
   <NewIdea/>
   <GiveBack/>   
   <OurFrom/>
-  <Footer/>
+  <Footer @footer="takeOf"/>
 </template>
 
 <style>
@@ -53,6 +58,21 @@ export default {
     --bac_brown : #C4956A;
     --color_gray : #9E9E9E;
     overflow-x: hidden;
+  }
+  .section{
+    transition: transform .4s;
+  }
+  .section:nth-of-type(even){
+    transform: translateX(-200%);
+  }
+  .section:nth-of-type(odd){
+    transform: translateX(200%);
+  }
+  .section.active:nth-of-type(even){
+    transform: translateX(0);
+  }
+  .section.active:nth-of-type(odd){
+    transform: translateX(0);
   }
   .container{
     font-family: 'Montserrat', sans-serif;
@@ -107,7 +127,6 @@ export default {
   .fad-leave-to{
     opacity : 0;
   }
-
   @media screen and (min-width: 1200px){   
     .container{
       margin: 0 auto;
