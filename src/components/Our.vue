@@ -217,7 +217,7 @@ export default {
     }
     @media screen and ( min-width: 576px){
         .our_wrap {
-            height: 50vh;
+            height: 43vh;
         }
         .our_item{
             padding: 0 10px;
