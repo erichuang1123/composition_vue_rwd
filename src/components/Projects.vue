@@ -195,7 +195,7 @@ export default {
     .project_wrap{
         position: relative;
         display: flex;
-        height: 85vh;
+        height: 560px;
     }
     .project_item{
         position: absolute;

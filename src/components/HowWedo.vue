@@ -118,7 +118,7 @@ export default {
     }
     .section_HowWedo::before{
         content: '';
-        width: 400px;
+        width: 250px;
         height: 100%;
         position: absolute;
         top: 0;
@@ -255,6 +255,9 @@ export default {
     @media screen and ( min-width: 768px){
         .section_HowWedo{
             padding: 85px 25px 85px;
+        }
+        .section_HowWedo::before{
+            width: 400px;
         }
     }
     @media screen and ( min-width: 992px){

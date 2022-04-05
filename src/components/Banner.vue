@@ -47,7 +47,13 @@ export default {
                     EFFICEINT HOURSES<br>
                     FROM 150 SQ.M.
                 </p>
-                <a class="contact" href="javascript:;">CONTACT US</a>
+                <a class="contact" href="javascript:;">
+                    CONTACT US
+                    <span class="moveBtn moveBtn1"></span>
+                    <span class="moveBtn moveBtn2"></span>
+                    <span class="moveBtn moveBtn3"></span>
+                    <span class="moveBtn moveBtn4"></span>
+                </a>
                 <div class="control_btn">
                     <a href="javascript:;" class="prev" @click="prevFn">
                         <i class="fa fa-arrow-left" aria-hidden="true"></i>
@@ -106,13 +112,55 @@ export default {
         padding: 10px 18px;
         display: inline-block;
         border: 1px solid var(--bac_brown);
+        position: relative;
         transform: translate(-50%);
         color: #fff;
         font-weight: 600;
-        transition: background-color .3s;
+        transition: border-color .3s;
     }
     .contact:hover{
-        background-color: var(--bac_brown);
+        border-color: transparent;
+    }
+    .contact:hover .moveBtn1{
+      animation: move1 1.5s infinite;
+    }
+    .contact:hover .moveBtn2{
+      animation: move2 1.5s infinite;
+    }
+    .contact:hover .moveBtn3{
+      animation: move3 1.5s infinite;
+    }
+    .contact:hover .moveBtn4{
+      animation: move4 1.5s infinite;
+    }
+    .wrap1 h2,
+    .wrap1 p,
+    .wrap1 a{
+        position: relative;
+        z-index: 5;
+    }
+    .wrap1::before{
+        content: '';
+        width: 200px;
+        height: 45%;
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        border-left: 1px solid #333333;
+        border-right: 1px solid #333333;
+        z-index: 1;
+    }
+    .wrap1::after{
+        content: '';
+        width: 1px;
+        height: 45%;
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: #333333;
+        z-index: 1;
     }
     .control_btn{
         padding: 10px;
@@ -125,7 +173,7 @@ export default {
         width: 30px;
         height: 30px;
         padding: 5px;
-        line-height: 30px;
+        line-height: 27px;
         font-size: 20px;
         text-align: center;
         color: #fff;
@@ -174,24 +222,6 @@ export default {
         opacity: .05;
         font-weight: 700;
     }
-    /* @keyframes move1 {
-	0% {
-		height: calc(100% + 1px);
-		bottom: -1px;
-	}
-	54% {
-		height: 0;
-		bottom: calc(100% + 1px);
-	}
-	55% {
-		height: 0;
-		bottom: -1px;
-	}
-	100% {
-		height: calc(100% + 1px);
-		bottom: -1px;
-	} */
-    /* } */
     @media screen and ( min-width: 576px){
         .section_banner{
             padding: 0;
@@ -202,6 +232,14 @@ export default {
         .wrap1{
             padding: 50px 0 0;
             width: 40%;
+            position: relative;
+        }
+        .wrap1::before{
+            width: 200px;
+            height: 100%;
+        }
+        .wrap1::after{
+            height: 100%;
         }
         .wrap2{
             width: 60%;
@@ -233,29 +271,6 @@ export default {
     @media screen and ( min-width: 768px){
         .wrap1{
             position: relative;
-        }
-        .wrap1::before{
-            content: '';
-            width: 200px;
-            height: 100%;
-            position: absolute;
-            top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            border-left: 1px solid #333333;
-            border-right: 1px solid #333333;
-            z-index: 1;
-        }
-        .wrap1::after{
-            content: '';
-            width: 1px;
-            height: 100%;
-            position: absolute;
-            top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            background-color: #333333;
-            z-index: 1;
         }
         .banner_wrap h2,
         .banner_wrap p{

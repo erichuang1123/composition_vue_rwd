@@ -44,7 +44,7 @@ export default {
                 <div class="ourFrom_from">
                     <input type="text" placeholder="Name">
                     <input type="email" placeholder="Email">
-                    <input type="phone" placeholder="Phone">
+                    <input type="tel" placeholder="Phone">
                     <a href="javascript:;">SUBMIT</a>
                 </div>       
             </div>     

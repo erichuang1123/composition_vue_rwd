@@ -63,7 +63,13 @@ export default {
                     </div>
                     <p class="content">Spectrum has been awarded for creativity many times.</p>
                 </div>
-                <a href="javascript:;" class="btn">CONTACT us</a>
+                <a href="javascript:;" class="btn">
+                    CONTACT us
+                    <span class="moveBtn moveBtn1"></span>
+                    <span class="moveBtn moveBtn2"></span>
+                    <span class="moveBtn moveBtn3"></span>
+                    <span class="moveBtn moveBtn4"></span>
+                </a>
             </div>
         </div>
     </section>
@@ -124,7 +130,7 @@ export default {
     .award_item:nth-child(3){
         margin: 0 auto 30px;
     }
-    .award_wrap .btn{
+    .btn{
         padding: 10px 20px;
         position: absolute;
         bottom: 25px;
@@ -135,9 +141,21 @@ export default {
         background-color: var(--bac_brown);
         transition: background-color .3s,color .3s;
     }
-    .award_wrap .btn:hover{
+    .btn:hover{
         color: #000;
         background-color: transparent;
+    }
+    .btn:hover .moveBtn1{
+        animation: move1 1.5s infinite;
+    }
+    .btn:hover .moveBtn2{
+        animation: move2 1.5s infinite;
+    }
+    .btn:hover .moveBtn3{
+        animation: move3 1.5s infinite;
+    }
+    .btn:hover .moveBtn4{
+        animation: move4 1.5s infinite;
     }
     @media screen and ( min-width: 576px){
         .section_award{

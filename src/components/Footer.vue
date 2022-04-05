@@ -39,7 +39,7 @@ export default {
 
 <style scoped> 
     .main_footer{
-        padding: 40px 0;
+        padding: 80px 0;
         background-color: var(--bac_black);
         color: #fff;text-align: center;
     }
@@ -84,13 +84,19 @@ export default {
         margin: 0 10px;
         color: #fff;
     }
+    .icon{
+        transition: color .3s;
+    }
+    .icon:hover{
+        color: var(--bac_brown);
+    }
     .copyright{
         color: #aaa;
         font-size: 14px;
     }
     @media screen and ( min-width: 768px){
         .main_footer{
-            padding: 70px 0;
+            padding: 60px 0;
         }
         h2{
             margin-bottom: 30px;

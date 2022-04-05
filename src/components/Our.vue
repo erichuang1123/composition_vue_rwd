@@ -120,7 +120,7 @@ export default {
     }
     .our_wrap{
         margin-bottom: 28px;
-        height: 60vh;
+        height: 70vh;
         display: flex;
         position: relative;
     }

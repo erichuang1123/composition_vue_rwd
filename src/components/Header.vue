@@ -1,7 +1,6 @@
 <script>
 import { ref } from '@vue/reactivity'
 import { useStore } from 'vuex'
-import store from '@/store'
 import { onMounted, watch } from '@vue/runtime-core'
 export default {
     props : {
@@ -16,10 +15,13 @@ export default {
         const open = ref(store.state.menuOpen);
         const scroll = ref(false);
         let nowMove = 0;
-        const liActive = ref(0);
         let timer = null;
+        const liActive = ref(0);
         const openHandler = ()=>{
             open.value = !open.value;
+        }
+        function reload(){
+            location.reload();
         }
         window.addEventListener('scroll',(e)=>{
             if(scrollY >= window.innerHeight){
@@ -29,44 +31,47 @@ export default {
             }
         });
         onMounted(()=>{
-            // props.domArr.data.forEach((e,index)=>{
-            //     e.addEventListener('click',()=>{
-            //     })
-            // })
             menu.value.querySelectorAll('li').forEach((dom,index)=>{
                 dom.addEventListener('click',(e)=>{
                     clearInterval(timer);
+                    open.value = false;
                     liActive.value = index;
                     nowMove = window.scrollY;
                     moveFn(e,index);
-                    // console.log(window.scrollY - props.domArr.data[index].offsetTop);
-                    // window.scrollTo(0,props.domArr.data[index].offsetTop)
                 })
             })
         })
+        const callMoveFn = (index)=>{
+            clearInterval(timer);
+            nowMove = window.scrollY;
+            moveFn(null,index);
+        }
         function moveFn(e,index){
             let top = props.domArr.data[index].offsetTop;
-            console.log(top);
             timer = setInterval(()=>{
-                nowMove+=10;
-                window.scrollTo(0,nowMove);
-                let last = props.domArr.data[props.domArr.data.length-1].offsetTop - ((props.domArr.data[props.domArr.data.length-1].offsetHeight) + 200);
-                // let last = props.domArr.data[props.domArr.data.length-1].offsetTop;
-                // last設定出來解決最後一個會跳的問題
-                if(window.scrollY >= top || window.scrollY > last){
-                    clearInterval(timer);
-                    window.scrollTo(0,top);
+                if(window.scrollY <= top){
+                    nowMove += 65;
+                    window.scrollTo(0,nowMove);
+                    // last設定出來解決最後一個會跳的問題
+                    let last = props.domArr.data[props.domArr.data.length-1].offsetTop - ((props.domArr.data[props.domArr.data.length-1].offsetHeight));
+                    if(window.scrollY >= top || window.scrollY > last){
+                        clearInterval(timer);
+                        window.scrollTo(0,top);
+                    }
+                }else{
+                    nowMove -= 65;
+                    window.scrollTo(0,nowMove);
                 }
-            },100)
+            },5)
         }
-        return {open,openHandler,scroll,menu,liActive}
+        return {open,openHandler,scroll,menu,liActive,callMoveFn,reload}
     }
 }
 </script>
 
 <template>
     <header class="main_header">
-        <a href="javascript:;">
+        <a href="javascript:;" @click="reload">
             <h1>
                 <img src="../assets/pic/logo-inverse-169x42.png" alt="logo">
                 <span class="sr_only">SPECTRUM</span>
@@ -94,13 +99,16 @@ export default {
             <li :class="{active:liActive == 4}">
                 <a href="javascript:;">Contacts</a>
             </li>
-            <li :class="['phone',{active:liActive == 4}]">
+            <li :class="['phone',{active:liActive == 5}]">
                 <a href="javascript:;">
                     <i class="fa fa-mobile" aria-hidden="true"></i>
                      1-300-123-1234
                 </a>
             </li>
         </ul>
+        <div :class="['backTop',{active : scroll}]" @click="callMoveFn(0)">
+            <i class="fa-solid fa-angle-up"></i>
+        </div>
     </header>
 </template>
 
@@ -180,6 +188,27 @@ export default {
     }
     .phone a{
         font-size: 20px;
+    }
+    .backTop{
+        width: 45px;
+        height: 45px;
+        position: fixed;
+        right: 35px;
+        bottom: 35px;
+        line-height: 49px;
+        font-size: 25px;
+        text-align: center;
+        color: #fff;
+        background-color: var(--bac_brown);
+        opacity: 0;
+        z-index: 10;
+        cursor: pointer;
+        pointer-events: none;
+        transition: opacity .3s;
+    }
+    .backTop.active{
+        opacity: 1;
+        pointer-events: unset;
     }
     @media screen and ( min-width: 1200px){
         /* js滾輪超過高度還要處理 */

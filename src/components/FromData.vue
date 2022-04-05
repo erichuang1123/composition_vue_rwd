@@ -75,8 +75,14 @@ export default {
               <div class="from_from">
                   <input type="text" placeholder="Name">
                   <input type="email" placeholder="Email">
-                  <input type="phone" placeholder="Phone">
-                  <a href="javascript:;">SUBMIT</a>
+                  <input type="tel" placeholder="Phone">
+                  <a href="javascript:;" class="submit">
+                      SUBMIT
+                    <span class="moveBtn moveBtn1"></span>
+                    <span class="moveBtn moveBtn2"></span>
+                    <span class="moveBtn moveBtn3"></span>
+                    <span class="moveBtn moveBtn4"></span>
+                  </a>
               </div>
           </div>
       </div>
@@ -166,15 +172,27 @@ export default {
     .from_from input:focus::placeholder{
         opacity: 0;
     }
-    .from_from a{
+    .submit{
         padding: 10px 20px;
         color: #fff;
-        background-color: var(--bac_brown);
-        border: none;
-        transition: background-color .3s;
+        border: 1px solid var(--bac_brown);
+        transition: border-color .3s;
+        position: relative;
     }
-    .from_from a:hover{
-        background-color: transparent;
+    .submit:hover{
+        border-color: transparent;
+    }
+    .submit:hover .moveBtn1{
+        animation: move1 1.5s infinite;
+    }
+    .submit:hover .moveBtn2{
+        animation: move2 1.5s infinite;
+    }
+    .submit:hover .moveBtn3{
+        animation: move3 1.5s infinite;
+    }
+    .submit:hover .moveBtn4{
+        animation: move4 1.5s infinite;
     }
     @media screen and ( min-width: 576px){
         .wrap1{

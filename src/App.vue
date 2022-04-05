@@ -60,19 +60,19 @@ export default {
     overflow-x: hidden;
   }
   .section{
-    transition: transform .4s;
+    transition: transform .4s,opacity .4s;
   }
   .section:nth-of-type(even){
     transform: translateX(-200%);
   }
   .section:nth-of-type(odd){
-    transform: translateX(200%);
+    opacity: 0;
   }
   .section.active:nth-of-type(even){
     transform: translateX(0);
   }
   .section.active:nth-of-type(odd){
-    transform: translateX(0);
+    opacity: 1;
   }
   .container{
     font-family: 'Montserrat', sans-serif;
@@ -127,6 +127,98 @@ export default {
   .fad-leave-to{
     opacity : 0;
   }
+  .moveBtn{
+      position: absolute;
+      background-color: var(--bac_brown);
+  }
+  .moveBtn1{
+      width: 1px;
+      bottom: 0;
+      left: -1.5px;
+      /* animation: move1 1.5s infinite; */
+  }
+  .moveBtn2{
+      height: 1px;
+      top: 0;
+      left: 0;
+      /* animation: move2 1.5s infinite; */
+  }
+  .moveBtn3{
+      width: 1px;
+      top: 0;
+      right: -1px;
+      /* animation: move3 1.5s infinite; */
+  }
+  .moveBtn4{
+      height: 1px;
+      bottom: 0;
+      right: 0;
+      /* animation: move4 1.5s infinite; */
+  }
+  @keyframes move1 {
+      0% {
+          height: 100%;
+          bottom: 0;
+      }
+      54% {
+          height: 0;
+          bottom: 100%;
+      }
+      55% {
+          height: 0;
+          bottom: 0;
+      }
+      100% {
+          height: 100%;
+          bottom: 0;
+      }
+  }
+  @keyframes move2 {
+    0% {
+      width: 0;
+      left: 0;
+    }
+    50% {
+      width: 100%;
+      left: 0;
+    }
+    100% {
+      width: 0;
+      left: 100%;
+    }
+  }
+  @keyframes move3 {
+    0% {
+      height: 100%;
+      top: 0;
+    }
+    54% {
+      height: 0;
+      top: 100%;
+    }
+    55% {
+      height: 0;
+      top: 0;
+    }
+    100% {
+      height: 100%;
+      top: 0;
+    }
+  }
+  @keyframes move4 {
+    0% {
+      width: 0;
+      right: 0;
+    }
+    55% {
+      width: 100%;
+      right: 0;
+    }
+    100% {
+      width: 0;
+      right: 100%;
+    }
+  }
   @media screen and (min-width: 1200px){   
     .container{
       margin: 0 auto;
@@ -134,3 +226,18 @@ export default {
     } 
   }
 </style>
+//    .contact:hover{
+//         border-color: transparent;
+//     }
+//     .contact:hover .moveBtn1{
+//       animation: move1 1.5s infinite;
+//     }
+//     .contact:hover .moveBtn2{
+//       animation: move2 1.5s infinite;
+//     }
+//     .contact:hover .moveBtn3{
+//       animation: move3 1.5s infinite;
+//     }
+//     .contact:hover .moveBtn4{
+//       animation: move4 1.5s infinite;
+//     }

@@ -139,7 +139,7 @@ export default {
         height: 15px;
         position: absolute;
         top: 0px;
-        left: 47%;
+        left: 45%;
         background-color: var(--bac_brown);
     }
     .commat1::after,
@@ -149,17 +149,17 @@ export default {
         height: 0;
         position: absolute;
         top: 15px;
-        left: 47%;
+        left: 45%;
         border-top: 5px solid var(--bac_brown);
         border-right: 5px solid transparent;
         border-bottom: 5px solid transparent;
         border-left: 5px solid var(--bac_brown);
     }
     .commat2::before{
-        left: 51%;
+        left: 52%;
     }
     .commat2::after{
-        left: 51%;
+        left: 52%;
     }
     .give_item{
         margin-bottom: 23px;
