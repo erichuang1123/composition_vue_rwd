@@ -106,6 +106,7 @@ export default {
                 </a>
             </li>
         </ul>
+        <div :class="['cotrol_btn',{active:open}]" @click="openHandler"></div>
         <div :class="['backTop',{active : scroll}]" @click="callMoveFn(0)">
             <i class="fa-solid fa-angle-up"></i>
         </div>
@@ -128,12 +129,16 @@ export default {
     .main_header h1{
         margin-right: 5vw;
         padding: 8px 10px;
+        position: relative;
+        z-index: 8;
     }
     .btn{
         width: 30px;        
         height: 30px;
         display: flex;
         align-items: center;
+        position: relative;
+        z-index: 8;
     }
     .btn .line{
         width: 30px;
@@ -209,6 +214,22 @@ export default {
     .backTop.active{
         opacity: 1;
         pointer-events: unset;
+    }
+    .cotrol_btn{
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        top: 0;
+        left: -200%;
+        right: 0;
+        bottom: 0;
+        background-color: #0005;
+        opacity: 0;
+        z-index: 5;
+    }
+    .cotrol_btn.active{
+        left: 0;
+        opacity: 1;
     }
     @media screen and ( min-width: 1200px){
         /* js滾輪超過高度還要處理 */
@@ -290,6 +311,11 @@ export default {
         }
         .btn .line3.open{
             width: 30px;
+        }
+        
+        .cotrol_btn.active{
+            left: -200%;
+            opacity: 0;
         }
     }
 </style>
