@@ -66,6 +66,7 @@ export default {
     .section_findNew{
         padding: 60px 0;
         position: relative;
+        overflow: hidden;
     }
     .section_findNew::before{
         content: '';
@@ -94,6 +95,16 @@ export default {
         position: relative;
         z-index: 2;
     }
+    .find_title{
+        position: relative;
+        left: 50px;
+        opacity: 0;
+        transition: left .3s,opacity .3s;
+    }
+    .section_findNew.active .find_title{
+        left: 0;
+        opacity: 1;
+    }
     .find_title h2{
         margin-bottom: 15px;
         text-align: center;
@@ -106,6 +117,16 @@ export default {
         text-align: center;
         color: var(--bac_brown);
         font-weight: 900;
+    }
+    .find_wrap{
+        position: relative;
+        left: -50px;
+        opacity: 0;
+        transition: left .3s .3s,opacity .3s .3s;
+    }
+    .section_findNew.active .find_wrap{
+        left: 0;
+        opacity: 1;
     }
     .find_item{
         margin: 0 auto;

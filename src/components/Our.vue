@@ -57,7 +57,7 @@ export default {
 <template>
     <section :class="['section','section_our',{active:open}]" ref="section">
         <div class="container">
-            <div class="out_title">
+            <div class="our_title">
                 <h2>OUR TEAM</h2>
                 <p>PEOPLE BEHIND OUR SUCCESS</p>
             </div>
@@ -104,25 +104,39 @@ export default {
     .section_our{
         padding: 30px 10px;   
         background-color: #F5F5F5;
+        overflow: hidden;
     }
-    .out_title{
+    .our_title{
+        position: relative;
+        left: -200vw;
         text-align: center;
+        opacity: 0;
+        transition: left .3s,opacity .3s;
     }
-    .out_title h2{
+    .section_our.active .our_title{
+        left: 0;
+        opacity: 1;
+    }
+    .our_title h2{
         margin-bottom: 20px;
         font-size: 28px;
         font-weight: 900;
     }
-    .out_title p{
+    .our_title p{
         margin-bottom: 20px;
         color: var(--bac_brown);
         font-weight: 900;
     }
     .our_wrap{
         margin-bottom: 28px;
-        height: 70vh;
+        height: 77vh;
         display: flex;
         position: relative;
+        opacity: 0;
+        transition: opacity .3s .4s;
+    }
+    .section_our.active .our_wrap{
+        opacity: 1;
     }
 
     /* js動畫 */
@@ -217,7 +231,7 @@ export default {
     }
     @media screen and ( min-width: 576px){
         .our_wrap {
-            height: 43vh;
+            height: 48vh;
         }
         .our_item{
             padding: 0 10px;
@@ -288,10 +302,10 @@ export default {
         .section_our{
             padding: 90px 20px;
         }
-        .out_title h2{
+        .our_title h2{
             margin-bottom: 30px;
         }
-        .out_title p{
+        .our_title p{
             margin-bottom: 60px;
         }
         .our_wrap{

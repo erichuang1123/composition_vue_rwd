@@ -116,6 +116,7 @@ export default {
     .section_giveBack{
         padding: 40px 15px;
         color: #fff;
+        overflow: hidden;
         background-image: url('../assets/pic/bg-image-1.jpg');
         background-repeat: no-repeat;
         background-size: cover;
@@ -127,6 +128,13 @@ export default {
         text-align: center;
         font-size: 18px;
         line-height: 1.4;
+        left: -50px;
+        opacity: 0;
+        transition: left .5s,opacity .5s;
+    }
+    .section_giveBack.active .giveback{
+        left: 0;
+        opacity: 1;
     }
     .commact{
         position: relative;
@@ -187,6 +195,13 @@ export default {
         margin-bottom: 25px;
         text-align: center;
     }
+    .wrap1{
+        opacity: 0;
+        transition: opacity .5s .3s;
+    }
+    .section_giveBack.active .wrap1{
+        opacity: 1;
+    }
     .wrap2 p{
         margin-bottom: 30px;
         text-align: center;
@@ -200,6 +215,13 @@ export default {
         display: flex;
         flex-wrap: wrap;
         align-items: center;
+        left: 50px;
+        opacity: 0;
+        transition: left .5s .5s,opacity .5s .5s;
+    }
+    .section_giveBack.active .wrap2 ul{
+        left: 0;
+        opacity: 1;
     }
     .wrap2 li{
         margin: 0 auto 20px;

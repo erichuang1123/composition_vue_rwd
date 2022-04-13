@@ -142,11 +142,19 @@ export default {
     .section_project{
         padding: 40px 0;
         background-color: #F5F5F5;
+        overflow: hidden;
     }
     .project_title{
         margin-bottom: 30px;
         padding-bottom: 5px;
         position: relative;
+        left: 50px;
+        opacity: 0;
+        transition: left .3s,opacity .3s;
+    }
+    .section_project.active .project_title{
+        left: 0;
+        opacity: 1;
     }
     .project_title::before{
         content: '';
@@ -193,9 +201,16 @@ export default {
         color: var(--bac_grown);
     }
     .project_wrap{
-        position: relative;
         display: flex;
-        height: 560px;
+        height: 590px;
+        position: relative;
+        left: -50px;
+        opacity: 0;
+        transition: left .3s .3s,opacity .3s .3s;
+    }
+    .section_project.active .project_wrap{
+        left: 0;
+        opacity: 1;
     }
     .project_item{
         position: absolute;
@@ -291,7 +306,7 @@ export default {
         .project_wrap{
             position: relative;
             display: flex;
-            height: 80vh;
+            height: 83vh;
         }
         .project_item{
             width: 500px;

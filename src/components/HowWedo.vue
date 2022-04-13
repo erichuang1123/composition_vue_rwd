@@ -153,11 +153,22 @@ export default {
         position: relative;
         z-index: 2;
     }
+    .how_title{
+        opacity: 0;
+        transition: opacity .3s;
+    }
+    .section_HowWedo.active .how_title{
+        opacity: 1;
+    }
     .wrap1 .txt{
         opacity: 0;
         transition: .05s;
     }
     .wrap1 .txt.open{
+        opacity: 0;
+        transition: opacity .3s .3s;
+    }
+    .section_HowWedo.active .wrap1 .txt.open{
         opacity: 1;
     }
     .wrap2 .pic{
@@ -165,6 +176,10 @@ export default {
         transition: .02s;
     }
     .wrap2 .pic.open{
+        opacity: 0;
+        transition: opacity .3s .6s;
+    }
+    .section_HowWedo.active .wrap2 .pic.open{
         opacity: 1;
     }
     .how_title{
@@ -209,6 +224,11 @@ export default {
     }
     .how_wrap ul{
         margin-bottom: 20px;
+        opacity: 0;
+        transition: opacity .3s .6s;
+    }
+    .section_HowWedo.active .how_wrap ul{
+        opacity: 1;
     }
     .how_wrap li{
         padding: 10px 0;

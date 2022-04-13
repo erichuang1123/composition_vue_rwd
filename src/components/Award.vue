@@ -79,9 +79,18 @@ export default {
     .section_award{
         padding: 40px 20px 50px;
         position: relative;
+        overflow: hidden;
     }
     .wrap1{
         margin-bottom: 40px;
+        position: relative;
+        left: 50px;
+        opacity: 0;
+        transition: left .3s,opacity .3s;
+    }
+    .section_award.active .wrap1{
+        left: 0;
+        opacity: 1;
     }
     .award_title h2{
         margin-bottom: 20px;
@@ -98,6 +107,14 @@ export default {
     .wrap2{
         display: flex;
         flex-wrap: wrap;
+        position: relative;
+        left: -50px;
+        opacity: 0;
+        transition: left .3s .3s,opacity .3s .3s;
+    }
+    .section_award.active .wrap2{
+        left: 0;
+        opacity: 1;
     }
     .award_tit .number{
         margin-bottom: 5px;
@@ -133,11 +150,12 @@ export default {
     .btn{
         padding: 10px 20px;
         position: absolute;
-        bottom: 25px;
+        bottom: -15px;
         left: 50%;
         transform: translateX(-50%);
         color: #fff;
         font-weight: 600;
+        font-size: 3vw;
         background-color: var(--bac_brown);
         transition: background-color .3s,color .3s;
     }
@@ -179,7 +197,8 @@ export default {
             font-size: 20px;
         }
         .award_wrap .btn{
-            bottom: 35px;
+            bottom: -30px;
+            font-size: 16px;
         }
     }
     @media screen and ( min-width: 768px){

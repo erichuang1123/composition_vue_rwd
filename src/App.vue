@@ -59,21 +59,6 @@ export default {
     --color_gray : #9E9E9E;
     overflow-x: hidden;
   }
-  .section{
-    transition: transform .4s,opacity .4s;
-  }
-  .section:nth-of-type(even){
-    transform: translateX(-200%);
-  }
-  .section:nth-of-type(odd){
-    opacity: 0;
-  }
-  .section.active:nth-of-type(even){
-    transform: translateX(0);
-  }
-  .section.active:nth-of-type(odd){
-    opacity: 1;
-  }
   .container{
     font-family: 'Montserrat', sans-serif;
     font-family: 'Noto Serif TC', serif;

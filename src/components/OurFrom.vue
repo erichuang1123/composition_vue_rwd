@@ -45,7 +45,13 @@ export default {
                     <input type="text" placeholder="Name">
                     <input type="email" placeholder="Email">
                     <input type="tel" placeholder="Phone">
-                    <a href="javascript:;">SUBMIT</a>
+                    <a href="javascript:;">
+                        SUBMIT
+                        <span class="moveBtn moveBtn1"></span>
+                        <span class="moveBtn moveBtn2"></span>
+                        <span class="moveBtn moveBtn3"></span>
+                        <span class="moveBtn moveBtn4"></span>
+                    </a>
                 </div>       
             </div>     
         </div>
@@ -56,12 +62,20 @@ export default {
     .section_ourFrom{
         padding: 50px 0;
         position: relative;
+        overflow: hidden;
     }
     .rwd_wrap{
         display: none;
     }
     .ourFrom_title{
         text-align: center;
+        left: -50px;
+        opacity: 0;
+        transition: left .5s,opacity .5s;
+    }
+    .section_ourFrom.active .ourFrom_title{
+        left: 0;
+        opacity: 1;
     }
     .ourFrom_title h2{
         margin-bottom: 15px;
@@ -82,6 +96,13 @@ export default {
         background-color: var(--bac_black);
         color: #fff;
         border-radius: 10px;
+        left: 50px;
+        opacity: 0;
+        transition: left .5s .5s,opacity .5s .5s;
+    }
+    .section_ourFrom.active .ourFrom_from{
+        left: 0;
+        opacity: 1;
     }
     .ourFrom_from input{
         margin-top: 5px;
@@ -108,13 +129,25 @@ export default {
     }
     .ourFrom_from a{
         padding: 10px 30px;
+        position: relative;
         color: #fff;
         background-color: var(--bac_brown);
-        border: none;
         transition: background-color .3s;
     }
     .ourFrom_from a:hover{
         background-color: transparent;
+    }
+    .ourFrom_from a:hover .moveBtn1{
+        animation: move1 1.5s infinite;
+    }
+    .ourFrom_from a:hover .moveBtn2{
+        animation: move2 1.5s infinite;
+    }
+    .ourFrom_from a:hover .moveBtn3{
+        animation: move3 1.5s infinite;
+    }
+    .ourFrom_from a:hover .moveBtn4{
+        animation: move4 1.5s infinite;
     }
     @media screen and ( min-width: 768px){
         .section_ourFrom{

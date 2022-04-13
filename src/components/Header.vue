@@ -53,8 +53,8 @@ export default {
                     nowMove += 65;
                     window.scrollTo(0,nowMove);
                     // last設定出來解決最後一個會跳的問題
-                    let last = props.domArr.data[props.domArr.data.length-1].offsetTop - ((props.domArr.data[props.domArr.data.length-1].offsetHeight));
-                    if(window.scrollY >= top || window.scrollY > last){
+                    let last = ((window.screen.height - (props.domArr.data[props.domArr.data.length-1].offsetHeight)) - props.domArr.data[props.domArr.data.length-1].offsetTop);
+                    if(window.scrollY >= top || window.scrollY >= Math.abs(last)){
                         clearInterval(timer);
                         window.scrollTo(0,top);
                     }

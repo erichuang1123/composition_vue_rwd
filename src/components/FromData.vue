@@ -93,6 +93,7 @@ export default {
     .section_FromData{
         padding: 40px 0;
         position: relative;
+        overflow: hidden;
     }
     .wrap1{
         margin-bottom: 40px;
@@ -101,6 +102,12 @@ export default {
         margin-bottom: 35px;
         padding: 15px 0;
         text-align: center;
+        position: relative;
+        left: -200%;
+        transition: left .3s;
+    }
+    .section_FromData.active .from_item{
+        left: 0;
     }
     .from_item .title .pic{
         margin-bottom: 20px;
@@ -145,9 +152,15 @@ export default {
         margin: 0 auto;
         padding: 40px 35px 40px;
         width: 75%;
-        background-color: var(--bac_black);
+        position: relative;
+        top: 200vw;
         color: #fff;
+        background-color: var(--bac_black);
         border-radius: 10px;
+        transition: top .3s .3s;
+    }
+    .section_FromData.active .from_from{
+        top: 0;
     }
     .from_from input{
         margin-top: 5px;
