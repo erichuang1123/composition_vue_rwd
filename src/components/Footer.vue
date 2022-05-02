@@ -16,7 +16,7 @@ export default {
     <footer class="sectopn main_footer" ref="footer">
         <a href="javascript:;">
             <h2>
-                <img src="../assets/pic/logo-inverse-2-54x63.png" alt="">
+                <img src="../assets/pic/logo-inverse-2-54x63.png" alt="logo">
                 <span class="sr_only">SPECTRUM</span>
             </h2>
         </a>

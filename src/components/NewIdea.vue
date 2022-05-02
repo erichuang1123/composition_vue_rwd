@@ -33,7 +33,7 @@ export default {
                     </a>
                     <div class="find_date">JUNE 19, 2018</div>
                     <div class="pic">
-                        <img src="../assets/pic/post-1-270x182.jpg" alt="">
+                        <img src="../assets/pic/post-1-270x182.jpg" alt="產品">
                     </div>
                     <p>Looking through our recent, impactful projects, we set out to ask the designers about their opinion...</p>
                 </div>
@@ -43,7 +43,7 @@ export default {
                     </a>
                     <div class="find_date">MAY 30, 2018</div>
                     <div class="pic">
-                        <img src="../assets/pic/post-2-270x182.jpg" alt="">
+                        <img src="../assets/pic/post-2-270x182.jpg" alt="產品">
                     </div>
                     <p>Architecture is constantly evolving based on changes in our culture, society and the environment. While...</p>
                 </div>
@@ -53,7 +53,7 @@ export default {
                     </a>
                     <div class="find_date">APRIL 15, 2018</div>
                     <div class="pic">
-                        <img src="../assets/pic/post-3-270x182.jpg" alt="">
+                        <img src="../assets/pic/post-3-270x182.jpg" alt="產品">
                     </div>
                     <p>A skilled architect will elevate the work you do to your home from the ordinary to the wonderful. Here’s...</p>
                 </div>

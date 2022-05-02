@@ -38,7 +38,7 @@ export default {
                     <p>WE DELIVER THE BEST SOLUTIONS</p>
                 </div>
                 <div class="pic">
-                    <img src="../assets/pic/index-5-533x362.jpg" alt="">
+                    <img src="../assets/pic/index-5-533x362.jpg" alt="工作圖片">
                 </div>
             </div>
             <div class="award_wrap wrap2">

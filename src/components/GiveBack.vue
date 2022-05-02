@@ -83,27 +83,27 @@ export default {
               <ul>
                   <li>
                       <a href="javascript:;">
-                          <img src="../assets/pic/clients-1-87x54.png" alt="">
+                          <img src="../assets/pic/clients-1-87x54.png" alt="clients">
                       </a>
                   </li>
                   <li>
                       <a href="javascript:;">
-                          <img src="../assets/pic/clients-2-112x45.png" alt="">
+                          <img src="../assets/pic/clients-2-112x45.png" alt="clients">
                       </a>
                   </li>
                   <li>
                       <a href="javascript:;">
-                          <img src="../assets/pic/clients-3-146x28.png" alt="">
+                          <img src="../assets/pic/clients-3-146x28.png" alt="clients">
                       </a>
                   </li>
                   <li>
                       <a href="javascript:;">
-                          <img src="../assets/pic/clients-4-84x47.png" alt="">
+                          <img src="../assets/pic/clients-4-84x47.png" alt="clients">
                       </a>
                   </li>
                   <li>
                       <a href="javascript:;">
-                          <img src="../assets/pic/clients-5-131x29.png" alt="">
+                          <img src="../assets/pic/clients-5-131x29.png" alt="clients">
                       </a>
                   </li>
               </ul>

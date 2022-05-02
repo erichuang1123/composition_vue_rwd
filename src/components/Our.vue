@@ -70,7 +70,7 @@ export default {
                              ]" 
                      v-for="(item,index) in dataArr.data">
                     <div class="pic">
-                        <img :src="item.src" alt="">
+                        <img :src="item.src" alt="人物">
                         <a href="javascript:;">{{item.imgName}}</a>
                     </div>
                     <div class="txt">
