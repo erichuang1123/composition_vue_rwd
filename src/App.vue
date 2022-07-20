@@ -27,6 +27,7 @@ export default {
     Footer
   },
   setup(){
+    // 把section的標傳到header裡面做進場動畫
     let number = 0;
     const domArr = reactive({data:[]});
     const takeOf = (dom)=>{
@@ -211,18 +212,3 @@ export default {
     } 
   }
 </style>
-//    .contact:hover{
-//         border-color: transparent;
-//     }
-//     .contact:hover .moveBtn1{
-//       animation: move1 1.5s infinite;
-//     }
-//     .contact:hover .moveBtn2{
-//       animation: move2 1.5s infinite;
-//     }
-//     .contact:hover .moveBtn3{
-//       animation: move3 1.5s infinite;
-//     }
-//     .contact:hover .moveBtn4{
-//       animation: move4 1.5s infinite;
-//     }

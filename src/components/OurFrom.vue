@@ -2,8 +2,10 @@
 import { useBacMove } from '@/composition-api/index.js'
 import { onMounted, ref } from '@vue/runtime-core';
 import { useScrollAddClass} from '@/composition-api/useScrollAddClass'
+import { addSubmitBtn } from '@/composition-api/addSubmitBtn'
 export default {
     setup(){
+        const {showBlock,submitObj,submitHandler} = addSubmitBtn();
         const section = ref(null);  
         const moveX = ref(0);
         const moveY = ref(0);
@@ -22,7 +24,7 @@ export default {
                 }
             })
         })
-        return { section , moveX, moveY , open}
+        return { section , moveX, moveY , open , showBlock , submitObj , submitHandler}
     }
 }
 </script>
@@ -41,11 +43,11 @@ export default {
                     </h2>
                     <p>LET’S WORK TOGETHER!</p>
                 </div>
-                <div class="ourFrom_from">
-                    <input type="text" placeholder="Name">
-                    <input type="email" placeholder="Email">
-                    <input type="tel" placeholder="Phone">
-                    <a href="javascript:;">
+                <div :class="['ourFrom_from',{clear : !showBlock}]">
+                    <input type="text" placeholder="Name" v-model="submitObj.name">
+                    <input type="email" placeholder="Email" v-model="submitObj.email">
+                    <input type="tel" placeholder="Phone" v-model="submitObj.phone">
+                    <a href="javascript:;" @click="submitHandler">
                         SUBMIT
                         <span class="moveBtn moveBtn1"></span>
                         <span class="moveBtn moveBtn2"></span>
@@ -89,7 +91,7 @@ export default {
         font-size: 18px;
         font-weight: 800;
     }
-     .ourFrom_from{
+    .ourFrom_from{
         margin: 0 auto;
         padding: 40px 35px 40px;
         width: 75%;
@@ -148,6 +150,9 @@ export default {
     }
     .ourFrom_from a:hover .moveBtn4{
         animation: move4 1.5s infinite;
+    }
+    .section_ourFrom .ourFrom_from.clear{
+        opacity: 0;
     }
     @media screen and ( min-width: 768px){
         .section_ourFrom{
